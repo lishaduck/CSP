@@ -9,7 +9,7 @@ import pytest
 # content of test_sample.py
 
 
-class RandomTest(unittest.TestCase):
+class AverageTest(unittest.TestCase):
     """This class contains tests.
 
     It is used to remind me how tests are made.
