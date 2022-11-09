@@ -2,7 +2,10 @@
 
 Elisha Dukes [9.14].
 """
+
+
 import turtle as trtl
+
 
 painter = trtl.Turtle()
 painter.speed(0)
@@ -17,8 +20,12 @@ for i in range(36):
         painter.left(60)
         painter.color(colors[i])
     painter.right(10)
+
+
 painter.penup()
 painter.color("white")
+
+
 for i in range(36):
     painter.penup()
     painter.forward(220)
@@ -31,6 +38,7 @@ for i in range(36):
 
 
 painter.hideturtle()
+
 
 wn = trtl.Screen()
 wn.bgcolor("black")
