@@ -92,11 +92,16 @@ for _ in range(6):
 EYE_SHAPE = input("Eye shape: ")
 EYE_SIZE = int(input("Eye size (.5-2): "))
 Y_COR = int(input("Eye y-loc (50-100): "))
+if EYE_SIZE > 1:
+    X_COR = 50
+else:
+    X_COR = 30
 painter.shape(EYE_SHAPE)
 painter.turtlesize(EYE_SIZE, EYE_SIZE, EYE_SIZE)
-painter.goto(-30, Y_COR)
+
+painter.goto(X_COR, Y_COR)
 painter.stamp()
-painter.goto(30, Y_COR)
+painter.goto(Y_COR, Y_COR)
 painter.stamp()
 
 # Persist Screen
