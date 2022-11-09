@@ -5,13 +5,13 @@
 import turtle as trtl
 
 
-# this section of code makes the spider's body
+# %% this section of code makes the spider's body
 spider = trtl.Turtle()
 spider.pensize(40)
 spider.circle(20)
 
 
-# initializes variables
+# %% initializes variables
 LEGS = 4
 LEGS_PER_SIDE = 4
 LEG_LENGTH = 70
@@ -19,7 +19,7 @@ DIRECTION = 360 / 10
 spider.pensize(5)
 
 
-# this loop makes the legs, set the direction, and moves forward
+# %% this loop makes the legs, set the direction, and moves forward
 for i in range(2):
     count = 0
     while count < LEGS:
@@ -46,7 +46,7 @@ for i in range(2):
     spider.forward(8)
 
 
-# shows the finished product and hides the turtle
+# %% shows the finished product and hides the turtle
 spider.hideturtle()
 wn = trtl.Screen()
 wn.mainloop()
