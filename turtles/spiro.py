@@ -1,4 +1,4 @@
-"""Program: spiro.py - overlays sprio projects.
+"""Program: spiro.py - overlay sprio projects.
 
 TODO: figure out how to play them all
 """

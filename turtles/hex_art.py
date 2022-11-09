@@ -1,4 +1,4 @@
-"""Program: hex_art.py - creates hexagonal art.
+"""Program: hex_art.py - create hexagonal art.
 
 Elisha Dukes [9.14].
 """

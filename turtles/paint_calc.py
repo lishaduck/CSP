@@ -1,4 +1,4 @@
-"""Program: paint_calc.py - calculates paint gallons.
+"""Program: paint_calc.py - calculate paint gallons.
 
 Command line usage:
 
