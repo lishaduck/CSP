@@ -9,6 +9,7 @@ bronze_score = 15
 silver_score = 20
 gold_score = 25
 
+
 # return names in the leaderboard file
 def get_names(file_name):
     with open(
@@ -89,18 +90,20 @@ def update_leaderboard(
         leaderboard_file.close()
 
 
-# def leaderboard():
-#     # Leaderboard
-#     leaderboard = trtl.Turtle()
-#     leaderboard.hideturtle()
-#     leaderboard.write(f"Player Name:     Score:\n{name}     {score}")
-
-
 # draw leaderboard and display a message to player
 def draw_leaderboard(
     high_scorer, leader_names, leader_scores, turtle_object: trtl.Turtle, player_score
 ):
+    """
+    @LeParco1's version:
 
+    # def leaderboard():
+    #     \"""Leaderboard\"""
+    #     leaderboard = trtl.Turtle()
+    #     leaderboard.hideturtle()
+    #     leaderboard.write(f"Player Name:     Score:\n{name}     {score}")
+
+    """
     # clear the screen and move turtle object to (-200, 100) to start drawing the leaderboard
     font_setup = ("Arial", 20, "normal")
     turtle_object.clear()
