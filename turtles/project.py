@@ -89,7 +89,7 @@ for _ in range(6):
 
 # Eyes
 EYE_SHAPE = input("Eye shape (must be valid turtleshape): ")
-EYE_SIZE = int(input("Eye size (.5-2): "))
+EYE_SIZE = float(input("Eye size (0.5-2): "))
 Y_COR = int(input("Eye y-loc (50-100): "))
 if EYE_SIZE > 1:
     X_COR = 50
