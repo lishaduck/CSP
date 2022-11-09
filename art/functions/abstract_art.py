@@ -12,7 +12,8 @@ painter = trtl.Turtle()
 painter.speed(0)
 # See /art/turtles/a_row_of_colored_squares.py for original code.
 def square(s):
-    """Make a square."""
+    """Make a square.
+    """
     for i in range(4):
         painter.forward(s)
         painter.left(90)
@@ -261,7 +262,8 @@ colors = [
 
 
 def generate_fill_color():
-    """Generate a color, and begin fill."""
+    """Generate a color, and begin fill.
+    """
     painter.begin_fill()
     painter.fillcolor(colors[random.randint(0, len(colors) - 1)])
 

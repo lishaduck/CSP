@@ -3,21 +3,24 @@
 
 
 def triple(num):
-    """Triple a number."""
+    """Triple a number.
+    """
     tripled = num * 3
     print(tripled)
     return tripled
 
 
 def triangle_area(base, height):
-    """Calculate the angle of a triangle given the base and the height."""
+    """Calculate the angle of a triangle given the base and the height.
+    """
     area = 1 / 2 * base * height
     print(area)
     return area
 
 
 def min_val(num1, num2):
-    """Return the lower of two numbers."""
+    """Return the lower of two numbers.
+    """
     if num1 <= num2:
         num = num1
     else:
