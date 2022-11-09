@@ -500,16 +500,14 @@ wn = trtl.Screen()
 
 # See /art/turtles/a_row_of_colored_squares.py for original code.
 def square(s):
-    """Make a square.
-    """
+    """Make a square."""
     for i in range(4):
         painter.forward(s)
         painter.left(90)
 
 
 def generate_fill_color():
-    """Generate a color, change pencolor, and begin fill.
-    """
+    """Generate a color, change pencolor, and begin fill."""
     painter.begin_fill()
     painter.fillcolor(random.choice(COLORS))
     painter.width(random.randint(1, 30))
@@ -517,15 +515,13 @@ def generate_fill_color():
 
 
 def forward():
-    """Move the turtle forward, and set the heading.
-    """
+    """Move the turtle forward, and set the heading."""
     painter.forward(random.randint(20, 100))
     painter.setheading(random.randint(0, 360))
 
 
 def draw():
-    """Do the drawing.
-    """
+    """Do the drawing."""
     forward()
     generate_fill_color()
     square(random.randint(10, 50))

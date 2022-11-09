@@ -9,8 +9,7 @@ $ python3 average.py [7,8,9,10]
 
 
 def average(nums):
-    """This function takes a list of numbers and returns the average of.
-    """
+    """This function takes a list of numbers and returns the average of."""
     total = sum(nums)
     avg = total / len(nums)
     return avg
