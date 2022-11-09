@@ -27,7 +27,10 @@ counter = trtl.Turtle()
 
 # -----game functions-----
 def countdown():
-    """Function: countdown() -"""
+    """Function: countdown() - timer.
+
+    No args.
+    """
     global timer
     global timer_up
     counter.clear()
