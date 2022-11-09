@@ -26,6 +26,6 @@ def compainer(reason):
     wn_.mainloop()
 
 
-CURRENT_COMPLAINT = input("[Message]")
-
-compainer(CURRENT_COMPLAINT)
+if __name__ == "__main__":
+    CURRENT_COMPLAINT = input("[Message]")
+    compainer(CURRENT_COMPLAINT)
