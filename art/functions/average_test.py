@@ -1,12 +1,14 @@
 """Tests the average.py module.
 """
+
+
 import random
 import statistics
 import unittest
-import average
+
 import pytest
 
-# content of test_sample.py
+import average
 
 
 class AverageTest(unittest.TestCase):

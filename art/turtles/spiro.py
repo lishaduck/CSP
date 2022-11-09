@@ -2,10 +2,10 @@
 
 TODO: figure out how to play them all
 """
-import hex_art
-import star_loop
 import a_row_of_colored_squares
 import circle_of_circles
+import hex_art
+import star_loop
 
 hexagonal_artisticness = hex_art
 starz = star_loop
