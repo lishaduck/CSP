@@ -76,6 +76,14 @@ def start_game():
     pass
 
 
+def leaderbard():
+    # Leaderboard
+    leaderboard = trtl.Turtle()
+    leaderboard.hideturtle()
+    name = input("What shall the leaderboard remember you as? ")
+    leaderboard.write(f"Player Name:     Score:\n{name}     {score}")
+
+
 # Game Code
 spot_color = "light green"
 spot_size = rand.randint(3, 5)
@@ -89,8 +97,10 @@ spot.goto(-100, 0)
 # ---------events----------
 spot.onclick(spot_clicked)
 wn.ontimer(countdown, counter_interval)
+leaderbard()
 wn.mainloop()
 
+# -------entrypoint--------
 if __name__ == "__main__":
     import sys
 
