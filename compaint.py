@@ -14,6 +14,6 @@ def compainer(reason):
     wn.mainloop()
 
 
-current_compaint = """ "Please Let me Leave!" - Hayden """
+current_compaint = """ Thank you! 😀 """
 
 compainer(current_compaint)
