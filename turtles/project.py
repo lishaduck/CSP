@@ -11,7 +11,7 @@ painter.shape("classic")
 painter.speed(0)
 
 # pick color
-color = input("What color? ")
+color = input("What color? (Must be vaild colorstring): ")
 
 # config colors
 painter.color(color)
@@ -88,7 +88,7 @@ for _ in range(6):
 
 
 # Eyes
-EYE_SHAPE = input("Eye shape: ")
+EYE_SHAPE = input("Eye shape (must be valid turtleshape): ")
 EYE_SIZE = int(input("Eye size (.5-2): "))
 Y_COR = int(input("Eye y-loc (50-100): "))
 if EYE_SIZE > 1:
