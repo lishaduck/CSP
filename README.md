@@ -1,6 +1,6 @@
 # CSP
 
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)][black] [![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)][pylint]
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)][black] [![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)][pylint] [![testing: pytest](https://img.shields.io/badge/testing-pytest-orange)][pytest]
 
 This repo tracks my progress in [Advanced Placement][AP] [Project Lead the Way][PLTW] [Computer Science Principles][CSP], the second class in the [Project Lead the Way Computer Science][PLTW CSP] classes.
 
@@ -30,6 +30,8 @@ This repo is roughly organized by unit:
     -   [`bottom_line.py`][bottom line] was made for health. It's a simple python-powered CLI that determines if you have drunk enough water.
     -   [`complaint.py`][complaint] was made for fun in [CSP][art]. It's a python program which makes a `TurtleScreen()` that displays a custom message.
 
+To run tests, use pytest.
+
 [AP]: https://apstudents.collegeboard.org/
 [PLTW]: https://www.pltw.org/
 [CSP]: https://apstudents.collegeboard.org/courses/ap-computer-science-principles
@@ -43,3 +45,4 @@ This repo is roughly organized by unit:
 [art]: #art-is-unit-1
 [pylint]: https://github.com/PyCQA/pylint
 [black]: https://github.com/psf/black
+[pytest]: https://pytest.org/
