@@ -90,13 +90,13 @@ for _ in range(6):
 
 # Eyes
 EYE_SHAPE = input("Eye shape: ")
-EYE_SIZE = int(input("Eye size (10-30): "))
-Y_COR = int(input("Eye y-loc (20-100): "))
+EYE_SIZE = int(input("Eye size (.5-2): "))
+Y_COR = int(input("Eye y-loc (50-100): "))
 painter.shape(EYE_SHAPE)
-painter.pensize(EYE_SIZE)
-painter.goto(-20, 50)
+painter.turtlesize(EYE_SIZE, EYE_SIZE, EYE_SIZE)
+painter.goto(-30, Y_COR)
 painter.stamp()
-painter.goto(20, 50)
+painter.goto(30, Y_COR)
 painter.stamp()
 
 # Persist Screen
