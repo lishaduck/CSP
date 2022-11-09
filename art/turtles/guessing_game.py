@@ -37,8 +37,8 @@ def quiz_game():
     ]
     answers = ["lima", "amazon", "no", "no", "yes"]
 
-    n: int
-    for n in range(len(questions)):
+    _: int
+    for _ in range(len(questions)):
         num = random.randint(0, len(questions) - 1)
         question = questions.pop(num)
         correct_answer = answers.pop(num)
@@ -55,7 +55,7 @@ def quiz_game():
 
 if __name__ == "__main__":
     playing = True
-    while playing == True:
+    while playing is True:
         print("Pick game: \n 1 for guess that number \n 2 for the quiz game")
         game = int(input("Selection: "))
         if game == 1:
