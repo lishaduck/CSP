@@ -9,18 +9,18 @@ import turtle
 painter = turtle.Turtle()
 painter.speed(0)
 
-r = 1
-g = 1
-b = 1
+R = 1
+G = 1
+B = 1
 
 for i in range(103):
     painter.circle(150)
     painter.right(7)
     painter.forward(5)
-    painter.pencolor((r, g, b))
-    r = r + 1
-    g = g + 1
-    b = b + 1
+    painter.pencolor((R, G, B))
+    R = R + 1
+    G = G + 1
+    B = B + 1
 
 wn = turtle.Screen()
 wn.mainloop()
