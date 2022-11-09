@@ -563,19 +563,19 @@ if iterations == "Infinity":
     i = 0
     while RUNNING:
         draw()
-        print(str(i) + "                 ", end="\r")
+        print(str(i) + "                           ", end="\r")
         i = i + 1
 
 elif str.isdigit(iterations):
     for i in range(int(iterations)):
         draw()
-        print(str(i) + "                 ", end="\r")
+        print(str(i) + "                           ", end="\r")
         i = i + 1
 else:
     print("That wasn't an option ... so you're going to have a 100 iteration loop.")
     for i in range(100):
         draw()
-        print(str(i) + "                 ", end="\r")
+        print(str(i) + "                           ", end="\r")
         i = i + 1
 
 wn.mainloop()
