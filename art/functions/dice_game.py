@@ -7,10 +7,13 @@ Elisha Dukes - Mrs. Carson
 
 # Import Statments
 import random
-import re
+
+# import re
 import sys
 import time
 from typing import Any
+
+import art  # import the art package
 
 # Function Definitions
 
@@ -53,7 +56,7 @@ def computer_strategy(dice_list: list[Any]) -> str:
 
     Stratgy #2
     """
-    typing_print("Computer is thinking ...")
+    typing_print("Computer is thinking...")
     time.sleep(3)
     choices: str = ""
     for i in range(len(dice_list)):
@@ -70,24 +73,40 @@ def find_winner(comp_dice_list: list[int], user_dice_list: list[int]):
     typing_print(f"The computer total is: {computer_total}")
     typing_print(f"The user total is: {user_total}")
     if user_total > computer_total:
-        typing_print("You win!")
+        finish = art.text2art("You win!", font="random-large")  # define art
+        typing_print(finish, 0.005)  # draw the art
     elif user_total < computer_total:
-        typing_print("Sorry.")
+        finish = art.text2art("Sorry.", font="random-medium")  # define art
+
+        typing_print(finish, 0.005)  # draw the art
     elif user_total == computer_total:
-        typing_print("Tie?")
+        finish = art.text2art("Sorry.", font="random-small")  # define art
+        typing_print(finish, 0.005)  # draw the art
 
 
-def is_choice(choices):
-    search = re.compile(
-        r"[^a-z0-9.]"
-    ).search  # TODO: fix this regex to determine if 'r' or '-' is found
-    return not bool(
-        search(choices)
-    )  # TODO: Verfiy this checks if the string matches the regex and return a BOOL.
+# def is_choice(choices):
+#     search = re.compile(
+#         r"[^(-|r|R)$]"
+#     ).search  # TODO: fix this regex to determine if 'r' or '-' is found
+#     return not bool(
+#         search(choices)
+#     )  # TODO: Verfiy this checks if the string matches the regex and return a BOOL.
 
+
+# # Ignore this
+# # TODO: Remove
+# bad = is_choice("17")
+# good = is_choice("--r-rr")
+# print("REGEX TEST:")
+# print(f"expect False: {bad}")
+# print(f"expect True: {good}")
 
 # MAIN PROGRAM
 # Step 1 - start the game
+# Add art
+title = art.text2art("Dice Game!", font="random-xlarge")  # define art
+# print(title)  # print the art
+typing_print(title, 0.005)  # draw the art
 number_dice = input("Enter number of dice:\n")
 while not str.isdigit(number_dice):
     number_dice = input("That was not a number, unworthy one:\n")
