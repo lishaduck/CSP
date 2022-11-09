@@ -4,9 +4,12 @@ This repo tracks my progress in [Advanced Placement](https://apstudents.collegeb
 
 This repo is roughly organized by unit:
 
--   ## [`turtles`](/turtles/) is unit 1
+-   ## [`art`](/art/) is unit 1
 
-    -   [`turtles/project.py`](/turtles/project.py) is the unit project.
+    -   [`turtles`](/art/turtles/) is lesson 1.1.
+        -   [`115codefilesCSP`](/art/turtles/115codefilesCSP/) is a set of 3 python turtle programs which move a robot around a maze.
+        -   [`art/turtles/project.py`](/art/turtles/project.py) is the lesson project.
+    -   [`functions`](/art/functions/) is lesson 1.2.
 
 -   ## [`web`](/web/) is unit 2
 
@@ -23,5 +26,4 @@ This repo is roughly organized by unit:
 -   ## Other projects at the [root](/) are listed below
 
     -   [`bottom_line.py`](/bottom_line.py) was made for health. It's a simple python-powered CLI that determines if you have drunk enough water.
-    -   [`complaint.py`](/compaint.py) was made for fun in [CSP](#turtles-is-unit-1). It's a python program which makes a `TurtleScreen()` that displays a custom message.
-    -   [`115codefilesCSP`](/115codefilesCSP/) was also made for [CSP](#turtles-is-unit-1). It's a set of 3 python turtle programs which move a robot around a maze.
+    -   [`complaint.py`](/compaint.py) was made for fun in [CSP](#art-is-unit-1). It's a python program which makes a `TurtleScreen()` that displays a custom message.
