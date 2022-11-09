@@ -100,7 +100,7 @@ painter.turtlesize(EYE_SIZE, EYE_SIZE, EYE_SIZE)
 
 painter.goto(X_COR, Y_COR)
 painter.stamp()
-painter.goto(Y_COR, Y_COR)
+painter.goto(-X_COR, Y_COR)
 painter.stamp()
 
 # Persist Screen
