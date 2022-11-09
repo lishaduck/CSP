@@ -59,8 +59,8 @@ def computer_strategy(dice_list: list[Any]) -> str:
     typing_print("Computer is thinking...")
     time.sleep(3)
     choices: str = ""
-    for i in range(len(dice_list)):
-        if i < 5:
+    for i, n in enumerate(dice_list):
+        if n < 5:
             choices = choices + "r"
         else:
             choices = choices + "-"
