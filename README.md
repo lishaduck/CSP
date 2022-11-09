@@ -1,5 +1,7 @@
 # CSP
 
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/PyCQA/pylint)
+
 This repo tracks my progress in [Advanced Placement](https://apstudents.collegeboard.org/) [Project Lead the Way](https://www.pltw.org/) [Computer Science Principles](https://apstudents.collegeboard.org/courses/ap-computer-science-principles), the second class in the [Project Lead the Way Computer Science](https://www.pltw.org/our-programs/pltw-computer-science) classes.
 
 This repo is roughly organized by unit:
