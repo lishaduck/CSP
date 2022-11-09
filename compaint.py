@@ -1,7 +1,19 @@
+"""
+compaint.py
+
+Command line usage:
+$ python3 complaint
+args:
+   <[Message]>
+returns - trtl.Screen (turtle graphic using a mainloop)
+"""
 import turtle as trtl
 
 
 def compainer(reason):
+    """
+    reason: string - Reason you wan to complain. Makes up sign text.
+    """
 
     paint = trtl.Turtle()
 
@@ -10,10 +22,10 @@ def compainer(reason):
     paint.write(reason, font=style, align="center")
     paint.hideturtle()
 
-    wn = trtl.Screen()
-    wn.mainloop()
+    wn_ = trtl.Screen()
+    wn_.mainloop()
 
 
-current_compaint = """ Thank you! 😀 """
+CURRENT_COMPLAINT = input("[Message]")
 
-compainer(current_compaint)
+compainer(CURRENT_COMPLAINT)
