@@ -1,3 +1,6 @@
+[build-system]
+requires = ["wheel >= 0.37.1"]
+
 [project]
 name = "CSP"
 description = "My CSP classwork."
