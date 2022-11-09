@@ -1,5 +1,5 @@
 """
-compaint.py
+Program: compaint.py - This program creates a custom message using turtle graphics.
 
 Command line usage:
 $ python3 complaint
@@ -41,12 +41,19 @@ def compainer(
 if __name__ == "__main__":
     IS_CUSTOMIZED = input("Customize format options - Y/n: ")
     if IS_CUSTOMIZED in ("Y", "y"):
+        color = input("color: ")
         font = input("font: ")
         size = int(input("Text Size (Int, not Float/Real): "))
         style = input("styling - bold, italic, or none (empty string): ")
 
         CURRENT_COMPLAINT = input("Message: ")
-        compainer(CURRENT_COMPLAINT, text_font=font, text_size=size, text_styling=style)
+        compainer(
+            CURRENT_COMPLAINT,
+            paint_color=color,
+            text_font=font,
+            text_size=size,
+            text_styling=style,
+        )
     else:
         CURRENT_COMPLAINT = input("Message: ")
         compainer(CURRENT_COMPLAINT)

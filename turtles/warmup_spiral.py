@@ -1,6 +1,6 @@
 """
-don't pass anything into this
-it broke with the addtion of colors
+Program warmup_spiral.py - Don't pass anything into this, as it broke with the addtion of colors.
+
 TODO: RGB
 """
 

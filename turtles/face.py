@@ -1,4 +1,6 @@
-"""
+"""Program: face.py - draws a face.
+
+Possibly of a turtle.
 """
 import turtle as trtl
 

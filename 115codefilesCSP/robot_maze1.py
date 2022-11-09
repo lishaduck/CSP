@@ -1,4 +1,5 @@
-"""a115_robot_maze.py"""
+"""Program: robot_maze1.py - first robot maze.
+"""
 
 
 import turtle as trtl

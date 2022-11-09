@@ -1,5 +1,5 @@
 """
-trial.py - python input practice.
+Program: trial.py - python input practice.
 
 command-line usage
 answer the prompts
@@ -29,6 +29,9 @@ YOU: Literal[""] = ""
 
 def figure(who) -> Literal[""]:
     """
+    Figure func.
+
+    args:
     who: string - pass in name
     """
     if who == "":

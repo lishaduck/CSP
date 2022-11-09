@@ -1,5 +1,6 @@
-"""
-Elisha Dukes [9.14]
+"""Program: hex_art.py - creates hexagonal art.
+
+Elisha Dukes [9.14].
 """
 import turtle as trtl
 

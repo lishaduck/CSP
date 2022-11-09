@@ -1,9 +1,9 @@
-"""
+"""Program: paint_calc.py - calculates paint gallons.
 Command line usage:
+
 $ python3 paint_calc
 <prompts>
 returns -
-
 
 gallons_of_paint: int
 """
@@ -11,6 +11,9 @@ gallons_of_paint: int
 
 def calc(height, length, windows, doors):
     """
+    Calculates paint gallons.
+
+    Args:
     height: int
     lenght: int
     windows: int

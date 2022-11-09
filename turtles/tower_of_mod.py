@@ -1,6 +1,7 @@
 """
-a113_tower.py
-Modify this code in VS Code to alternate the colors of the floors every three floors
+Program: tower_of_mod.py - makes a tower.
+
+# Modify this code in VS Code to alternate the colors of the floors every three floors
 """
 
 import turtle as trtl
