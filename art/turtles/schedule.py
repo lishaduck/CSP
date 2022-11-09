@@ -1,4 +1,4 @@
-"""Program: schedule.py - check your (hardcoded) calendar.
+"""Program: schedule.py - Check your (hardcoded) calendar.
 """
 
 

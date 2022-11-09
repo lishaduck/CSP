@@ -1,4 +1,4 @@
-"""Program: star_loop.py - make a circle of stars using a for loop.
+"""Program: star_loop.py - Make a circle of stars using a for loop.
 """
 
 

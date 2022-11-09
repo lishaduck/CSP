@@ -1,4 +1,4 @@
-"""Program: average.py - calculate average of a list of numbers.
+"""Program: average.py - Calculate average of a list of numbers.
 
 Command line usage:
 $ python3 average.py [7,8,9,10]

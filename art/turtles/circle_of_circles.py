@@ -1,4 +1,4 @@
-"""Program: circle_of_circles.py - make a circle out of smaller circles.
+"""Program: circle_of_circles.py - Make a circle out of smaller circles.
 """
 
 

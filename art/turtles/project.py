@@ -1,4 +1,4 @@
-"""Program: project.py - make a custom pumpkin.
+"""Program: project.py - Make a custom pumpkin.
 """
 
 

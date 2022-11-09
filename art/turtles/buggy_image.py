@@ -1,4 +1,4 @@
-"""Program: buggy_image.py - make a spider.
+"""Program: buggy_image.py - Make a spider.
 """
 
 

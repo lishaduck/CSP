@@ -1,4 +1,4 @@
-"""Program: face.py - draw a face.
+"""Program: face.py - Draw a face.
 
 Possibly of a turtle.
 """

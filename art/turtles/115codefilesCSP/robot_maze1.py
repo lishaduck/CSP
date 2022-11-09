@@ -1,4 +1,4 @@
-"""Program: robot_maze1.py - first robot maze.
+"""Program: robot_maze1.py - First robot maze.
 """
 
 

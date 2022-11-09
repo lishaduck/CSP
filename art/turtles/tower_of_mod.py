@@ -1,5 +1,5 @@
 """
-Program: tower_of_mod.py - make a tower.
+Program: tower_of_mod.py - Make a tower.
 
 # Modify this code in VS Code to alternate the colors of the floors every three floors
 """

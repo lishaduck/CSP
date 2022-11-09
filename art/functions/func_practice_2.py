@@ -1,4 +1,4 @@
-"""Program: func_practice_2.py - calculate numbers.
+"""Program: func_practice_2.py - Calculate numbers.
 """
 
 

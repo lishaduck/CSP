@@ -1,4 +1,4 @@
-"""Program: abstract_art.py - make abstract art with turtles.
+"""Program: abstract_art.py - Make abstract art with turtles.
 
 "Use random colors, randomly sized circles, and randomly sized squares
 to create abstract art that is different each time you run the program."

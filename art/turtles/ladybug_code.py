@@ -1,4 +1,4 @@
-"""Program: ladybug_code.py - make a ladybug.
+"""Program: ladybug_code.py - Make a ladybug.
 """
 
 

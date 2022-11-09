@@ -1,4 +1,4 @@
-"""Program: a_row_of_colored_squares.py - make a row of squares.
+"""Program: a_row_of_colored_squares.py - Make a row of squares.
 
 The squares are diffrent colors.
 """

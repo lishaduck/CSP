@@ -1,4 +1,4 @@
-"""Program: robot_maze2.py - second robot maze.
+"""Program: robot_maze2.py - Second robot maze.
 """
 
 

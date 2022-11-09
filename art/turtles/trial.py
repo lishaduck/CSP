@@ -1,5 +1,5 @@
 """
-Program: trial.py - python input practice.
+Program: trial.py - Python input practice.
 
 command-line usage
 answer the prompts
