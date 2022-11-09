@@ -6,8 +6,9 @@ Modify this code in VS Code to alternate the colors of the floors every three fl
 import turtle as trtl
 
 painter = trtl.Turtle()
-painter.speed(0)
+painter.speed(2)
 painter.pensize(5)
+painter.shape("turtle")
 
 # starting location of the tower
 x = -150
