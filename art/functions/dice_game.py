@@ -13,12 +13,14 @@ import sys
 import time
 from typing import Any
 
+import httplib2
+
 import art  # import the art package
 
 # Function Definitions
 
 
-def typing_print(text: str, runtime: float = 0.05) -> None:
+def typing_print(text: str, runtime: float = 0.05, end: str | None = "\n") -> None:
     """Credit does not go to Nolan, as he stole it off the internet...
 
     But it works!
@@ -28,7 +30,7 @@ def typing_print(text: str, runtime: float = 0.05) -> None:
         sys.stdout.write(character)
         sys.stdout.flush()
         time.sleep(runtime)
-    print("")
+    print("", end=end)
 
 
 def roll_dice(n: int) -> list[int]:
@@ -75,12 +77,16 @@ def find_winner(comp_dice_list: list[int], user_dice_list: list[int]):
     if user_total > computer_total:
         finish = art.text2art("You win!", font="random-large")  # define art
         typing_print(finish, 0.005)  # draw the art
+        typing_print("To commemorate your victory, Tim Peters wrote you some poetry:")
+        import this
+
+        print(f'"{this.__name__}"is the truth, the 19 of the 20, the zen á la python.')
     elif user_total < computer_total:
         finish = art.text2art("Sorry.", font="random-medium")  # define art
 
         typing_print(finish, 0.005)  # draw the art
     elif user_total == computer_total:
-        finish = art.text2art("Sorry.", font="random-small")  # define art
+        finish = art.text2art("Tie?", font="random-small")  # define art
         typing_print(finish, 0.005)  # draw the art
 
 
@@ -103,10 +109,29 @@ def find_winner(comp_dice_list: list[int], user_dice_list: list[int]):
 
 # MAIN PROGRAM
 # Step 1 - start the game
+
+# Loading (TODO: Fix download)
+typing_print("Downloading resources...", end="\r")
+print("\n\n")
+time.sleep(1)
+# resources_downloader = httplib2.Http
+typing_print("Loading |", end="\r")
+for i in range(random.randint(5, 20)):
+    time.sleep(0.12)
+    print("Loading \\", end="\r")
+    time.sleep(0.12)
+    print("Loading |", end="\r")
+    time.sleep(0.12)
+    print("Loading /", end="\r")
+    time.sleep(0.12)
+    print("Loading |", end="\r")
+
 # Add art
 title = art.text2art("Dice Game!", font="random-xlarge")  # define art
 # print(title)  # print the art
 typing_print(title, 0.005)  # draw the art
+print("\a\a\a")
+
 number_dice = input("Enter number of dice:\n")
 while not str.isdigit(number_dice):
     number_dice = input("That was not a number, unworthy one:\n")
@@ -117,18 +142,25 @@ input("Ready to start? Hit enter to continue.")
 
 # Step 2 - roll the dice
 user_rolls = roll_dice(number_dice)
+time.sleep(3)
 typing_print("Your turn!")
-typing_print(f"User's first roll: {user_rolls}\nThe user's total is: {sum(user_rolls)}")
+typing_print(
+    f"\aUser's first roll: {user_rolls}\nThe user's total is: {sum(user_rolls)}"
+)
+time.sleep(3)
+
 typing_print("Computer's turn:")
+time.sleep(3)
 computer_rolls = roll_dice(number_dice)
 typing_print(
-    f"Computer's first roll: {computer_rolls}\nThe computer's total is: {sum(computer_rolls)}"
+    f"\aComputer's first roll: {computer_rolls}\nThe computer's total is: {sum(computer_rolls)}"
 )
+time.sleep(3)
 
 # Step 3 - get user choices
 user_choices = input("'-' to hold, or 'r' to re-roll.")
 
-while (len(user_choices) != number_dice) and (True):
+while (len(user_choices) != number_dice) and (True):  # TODO: regex this
     typing_print(
         f"You must enter {number_dice} choices, and they must only be 'r' or '-'."
     )
@@ -137,6 +169,7 @@ while (len(user_choices) != number_dice) and (True):
 # Step 4 - roll again based on user choices
 user_rolls = roll_again(user_choices, user_rolls)
 typing_print(f"Player's new roll is: {user_rolls}")
+
 # Step 5 - computer decision, computer rolls agian
 computer_choices = computer_strategy(computer_rolls)
 typing_print(f"The computer's choices are: {computer_choices}")
