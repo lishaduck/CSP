@@ -6,6 +6,7 @@ to create abstract art that is different each time you run the program."
 
 
 import random
+from time import sleep
 import turtle as trtl
 
 
@@ -512,6 +513,7 @@ def generate_fill_color():
     """
     painter.begin_fill()
     painter.fillcolor(random.choice(COLORS))
+    painter.width(random.randint(1, 30))
     painter.pencolor(random.choice(COLORS))
 
 
@@ -536,18 +538,44 @@ def draw():
 
     if painter.xcor() > wn.window_width() / 2:
         painter.goto(0, 0)
+        print("Summoned (Too far right x).  ", end="\r")
+        sleep(3)
 
     if painter.xcor() < -(wn.window_width() / 2):
         painter.goto(0, 0)
+        print("Summoned (Too far left x).  ", end="\r")
+        sleep(3)
 
     if painter.ycor() > wn.window_height() / 2:
         painter.goto(0, 0)
+        print("Summoned (Too far top y).   ", end="\r")
+        sleep(3)
 
     if painter.ycor() < -(wn.window_height() / 2):
         painter.goto(0, 0)
+        print("Summoned (Too far bottom y).", end="\r")
+        sleep(3)
 
 
-for i in range(100):
-    draw()
+iterations = input("Iterations (Int, or 'Infinity'): ")
+if iterations == "Infinity":
+    RUNNING = True
+    i = 0
+    while RUNNING:
+        draw()
+        print(str(i) + "                 ", end="\r")
+        i = i + 1
+
+elif str.isdigit(iterations):
+    for i in range(int(iterations)):
+        draw()
+        print(str(i) + "                 ", end="\r")
+        i = i + 1
+else:
+    print("That wasn't an option ... so you're going to have a 100 iteration loop.")
+    for i in range(100):
+        draw()
+        print(str(i) + "                 ", end="\r")
+        i = i + 1
 
 wn.mainloop()
