@@ -40,6 +40,7 @@ def compainer(
 
 if __name__ == "__main__":
     IS_CUSTOMIZED = input("Customize format options - Y/n: ")
+
     if IS_CUSTOMIZED in ("Y", "y"):
         color = input("color: ")
         font = input("font: ")
