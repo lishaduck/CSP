@@ -8,7 +8,7 @@ import random
 
 
 # Create a list of words for the computer to choose from
-words = [
+word_list_1 = [
     ".NET",
     "gitignore",
     "jupyter",
@@ -39,6 +39,10 @@ words = [
     "objective-C",
     "objective-C++",
     "elixir",
+]
+EASTER = "malware"
+EGG = "npm-birthday"
+word_list_2 = [
     "Go",
     "haxe",
     "pug",
@@ -54,6 +58,7 @@ words = [
     "PowerShell",
     "VHDL",
     "Z80",
+    EASTER,
     "WebAssembly",
     "clojure",
     "CoffeeScript",
@@ -109,6 +114,7 @@ words = [
     "Glimmer",
     "roc",
 ]
+words = word_list_1 + word_list_2
 
 
 # credit where credit is due: https://stackoverflow.com/a/287944
@@ -141,7 +147,7 @@ def scramble(w):  # this defines the function
     return scramble_word  # this makes the word accessable
 
 
-low_score = 0
+low_score = 500
 total = 0
 
 
@@ -156,14 +162,16 @@ The game will print the {BColors.UNDERLINE}scrambled{BColors.ENDC} name of a pro
 Then, you will type in your answer.
 If it is correct, you'll be prompted to answer another.
 If your not, you'll be prompted to try again.
-To quit, type :exit.
+To skip a question, type ':skip' or ':s'.
+To end the round, type ':exit', or ':e'.
+To quit, type ':quit' or ':q'.
 After 10 successes, you'll be given you score.
 {BColors.UNDERLINE}Lower{BColors.ENDC} is better.
+\n
         """
     )
 
 
-# Entrypoint
 def game():
     global low_score
     global total
@@ -171,26 +179,47 @@ def game():
     score = 0
     j = 0
     answer = ""
-    while j < 10 and answer != ":exit":
+    while j < 10 and answer not in (":exit", ":e", ":q", ":quit", EGG):
         # define a variable called secret_word and have it pick a random word from the list
         secret_word = random.choice(words)
         print("\n\n" + scramble(secret_word) + "\n")
         answer = "rbt"  # short for `Roc Build Tool`,
         # (continued:) rbt is pronounced 'ribbit', per https://github.com/roc-lang/rbt/
         # Ask the user for their input to guess the word
-        while answer not in (secret_word, ":exit"):
+        while answer not in (
+            secret_word,
+            ":exit",
+            ":e",
+            ":skip",
+            ":s",
+            ":quit",
+            ":q",
+            EGG,
+        ):
             answer = input("")
 
-            if answer not in (secret_word, ":exit"):
+            if answer not in (secret_word, ":exit", ":e", ":quit", ":q") and (
+                secret_word != EASTER and answer is not EGG
+            ):
                 score = score + 1
+        if answer == EGG:
+            score = -1
         j = j + 1
+    print("\n\n\n")
     print("Score: ", score)
     total = total + score
     print("Total:", total)
-    low_score = max(low_score, score)
+    low_score = min(low_score, score)
     print("Low Score:", low_score)
+    while answer == EGG:
+        print("Score: ", score)
+        total = total + score
+        print("Total:", total)
+        low_score = min(low_score, score)
+        print("Low Score:", low_score)
 
 
+# Entrypoint
 if __name__ == "__main__":
     import sys
 
@@ -207,6 +236,7 @@ if __name__ == "__main__":
         print(__doc__)
         want_to_play = input("Do you want to play? (y/n) ")
         if want_to_play in ("Y", "y"):
+            instructions()
             is_playing = True
 
             while is_playing:
