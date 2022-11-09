@@ -1,11 +1,9 @@
 """Program: unscramble_game.py - Play a fun game!
-
 """
 
 
 import dataclasses
 import random
-
 
 # Create a list of words for the computer to choose from
 word_list_1 = [

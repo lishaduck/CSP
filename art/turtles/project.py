@@ -4,7 +4,6 @@
 
 import turtle as trtl
 
-
 # init
 painter = trtl.Turtle()
 painter.shape("classic")

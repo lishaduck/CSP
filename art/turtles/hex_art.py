@@ -6,7 +6,6 @@ Elisha Dukes [9.14].
 
 import turtle as trtl
 
-
 painter = trtl.Turtle()
 painter.speed(0)
 

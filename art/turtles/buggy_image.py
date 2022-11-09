@@ -4,7 +4,6 @@
 
 import turtle as trtl
 
-
 # %% this section of code makes the spider's body
 spider = trtl.Turtle()
 spider.pensize(40)

@@ -4,7 +4,6 @@
 
 import turtle as trtl
 
-
 # create ladybug head
 ladybug = trtl.Turtle()
 ladybug.pensize(40)

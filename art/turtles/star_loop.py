@@ -4,7 +4,6 @@
 
 import turtle as trtl
 
-
 firework = trtl.Turtle()
 firework.speed(0)
 

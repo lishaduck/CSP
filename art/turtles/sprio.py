@@ -3,7 +3,6 @@
 
 import turtle as trtl
 
-
 painter = trtl.Turtle()
 painter.penup()
 painter.goto(-200, 0)

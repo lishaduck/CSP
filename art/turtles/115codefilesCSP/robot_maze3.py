@@ -4,7 +4,6 @@
 
 import turtle as trtl
 
-
 # ----- maze and turtle config variables
 screen_h = 400
 screen_w = 420

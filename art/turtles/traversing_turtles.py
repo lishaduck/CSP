@@ -4,7 +4,6 @@
 
 import turtle as trtl
 
-
 # create an empty list of turtles
 my_turtles = []
 

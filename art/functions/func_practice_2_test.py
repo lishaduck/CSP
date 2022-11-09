@@ -4,9 +4,8 @@
 
 import unittest
 
-import pytest
-
 import func_practice_2
+import pytest
 
 
 class TripleTest(unittest.TestCase):

@@ -6,9 +6,8 @@ import random
 import statistics
 import unittest
 
-import pytest
-
 import average
+import pytest
 
 
 class AverageTest(unittest.TestCase):

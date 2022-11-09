@@ -6,7 +6,6 @@ The squares are diffrent colors.
 
 import turtle as trtl
 
-
 painter = trtl.Turtle()
 
 

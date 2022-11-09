@@ -6,9 +6,8 @@ to create abstract art that is different each time you run the program."
 
 
 import random
-from time import sleep
 import turtle as trtl
-
+from time import sleep
 
 # Credit where credit is due: https://www.wikipython.com/tkinter-ttk-tix/summary-information/colors/
 COLORS = [
