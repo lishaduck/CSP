@@ -30,7 +30,6 @@ painter.pendown()
 painter.circle(200, 350)
 painter.end_fill()
 
-
 # Stem
 painter.fillcolor("brown")
 painter.begin_fill()
