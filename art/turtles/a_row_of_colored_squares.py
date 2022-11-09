@@ -1,8 +1,17 @@
+"""Program: a_row_of_colored_squares.py - make a row of squares.
+
+The squares are diffrent colors.
+"""
+
+
 import turtle as trtl
+
 
 painter = trtl.Turtle()
 
+
 colors = ["red", "green", "blue", "orange", "purple", "yellow"]
+
 
 for i in range(6):
     painter.pencolor(colors[i])
@@ -14,6 +23,7 @@ for i in range(6):
     painter.pendown()
 
 painter.hideturtle()
+
 
 wn = trtl.Screen()
 wn.mainloop()

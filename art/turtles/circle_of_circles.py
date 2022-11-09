@@ -1,10 +1,16 @@
+"""Program: circle_of_circles.py - make a circle out of smaller circles.
+"""
+
+
 import turtle as trtl
 
+
 painter = trtl.Turtle()
+painter.speed(0)
+
 
 colors = ["red", "green", "blue", "orange", "purple", "yellow"]
 
-painter.speed(0)
 
 for i in range(36):
     painter.penup()
@@ -19,6 +25,7 @@ for i in range(36):
     painter.pendown()
 
 painter.hideturtle()
+
 
 wn = trtl.Screen()
 wn.mainloop()

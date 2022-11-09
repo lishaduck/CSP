@@ -1,4 +1,4 @@
-"""Program: guessing_game - guess what is is.
+"""Program: guessing_game.py - guess what is is.
 """
 
 
