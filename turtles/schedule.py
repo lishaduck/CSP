@@ -1,4 +1,5 @@
-"""Program: schedule.py - check your (hardcoded) calendar."""
+"""Program: schedule.py - check your (hardcoded) calendar.
+"""
 
 
 # Write a program to check your daily schedule:

@@ -1,4 +1,5 @@
-"""Program: guessing_game - guess"""
+"""Program: guessing_game - guess what is is.
+"""
 
 
 import random
