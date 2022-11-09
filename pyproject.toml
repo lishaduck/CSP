@@ -1,0 +1,49 @@
+[project]
+name = "CSP"
+description = "My CSP classwork."
+requires-python = ">=3.10"
+authors = [
+  { name = "Elisha Dukes", email = "88557639+lishaduck@users.noreply.github.com" },
+]
+dependencies = [
+  "art>=5.0.0",
+  "httplib2>=0.20.4"
+]
+dynamic = ["readme", "version"]
+
+[project.urls]
+Homepage = "https://github.com/lishaduck/CSP"
+
+[project.optional-dependencies]
+pytest = ["pytest>=7.1.3"]
+pylint = ["pylint>=2.15.4"]
+isort = ["isort>=5.10.1"]
+black = ["black>=22.10.0"]
+
+[tool.pylint.main]
+
+# List of plugins (as comma separated values of python module names) to load,
+# usually to register additional checkers.
+load-plugins = [
+  "pylint.extensions.docparams",
+  "pylint.extensions.mccabe",
+  "pylint.extensions.docstyle"
+]
+
+
+# Minimum Python version to use for version dependent checks. Will default to the
+# version used to run pylint.
+py-version = "3.10"
+
+
+[tool.black]
+line-length = 88
+preview = false
+
+[tool.isort]
+atomic = true
+profile = "black"
+line_length = 88
+skip_gitignore = true
+
+[tool.pytest.ini_options]
