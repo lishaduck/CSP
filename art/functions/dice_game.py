@@ -13,8 +13,7 @@ import sys
 import time
 from typing import Any
 
-import httplib2
-
+# import httplib2
 import art  # import the art package
 
 # Function Definitions
@@ -124,7 +123,7 @@ for i in range(random.randint(5, 20)):
     time.sleep(0.12)
     print("Loading /", end="\r")
     time.sleep(0.12)
-    print("Loading |", end="\r")
+    print("Loading -", end="\r")
 
 # Add art
 title = art.text2art("Dice Game!", font="random-xlarge")  # define art

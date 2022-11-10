@@ -38,10 +38,7 @@ counter.goto(-50, 250)
 
 # -----game functions-----
 def countdown():
-    """Function: countdown() - timer.
-
-    No args.
-    """
+    """Function: countdown() - timer."""
     global timer
     global timer_up
     counter.clear()
@@ -58,7 +55,6 @@ def countdown():
 
 def spot_clicked(x: float, y: float):
     if timer > 0:
-        global score
         update_score()
         change_position()
 
