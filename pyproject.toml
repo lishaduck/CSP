@@ -30,6 +30,8 @@ pytest-black = "^0.3.12"
 bandit = "^1.7.4"
 pydocstringformatter = "0.7.2"
 pyupgrade = "^3.2.2"
+poetry = "^1.2.2"
+sphinx = "^5.3.0"
 
 
 [build-system]
