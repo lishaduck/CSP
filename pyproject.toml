@@ -2,7 +2,7 @@
 name = "csp"
 version = "0.0.0"
 description = "My CSP classwork."
-authors = ["lishaduck,88557639+lishaduck@users.noreply.github.com>"]
+authors = ["lishaduck <88557639+lishaduck@users.noreply.github.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -31,9 +31,11 @@ bandit = "^1.7.4"
 pydocstringformatter = "0.7.2"
 pyupgrade = "^3.2.2"
 
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
 
 [tool.pylint.main]
 
@@ -45,7 +47,7 @@ load-plugins = [
   "pylint.extensions.docstyle",
   "pylint.extensions.code_style",
   "pylint.extensions.typing",
-  "pylint.extensions.bad_builtin"
+  "pylint.extensions.bad_builtin",
 ]
 
 
@@ -58,10 +60,12 @@ py-version = "3.10"
 line-length = 88
 preview = false
 
+
 [tool.isort]
 atomic = true
 profile = "black"
 line_length = 88
 skip_gitignore = true
+
 
 [tool.pytest.ini_options]
