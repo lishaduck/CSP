@@ -1,0 +1,20 @@
+{
+    "recommendations": [
+        "ms-python.python",
+        "ms-python.isort",
+        "ms-python.black-formatter",
+        "ms-python.pylint",
+        "visualstudioexptteam.vscodeintellicode",
+        "github.vscode-pull-request-github",
+        "github.classroom",
+        "github.remotehub",
+        "eamodio.gitlens",
+        "codezombiech.gitignore",
+        "bierner.github-markdown-preview",
+        "ms-vsliveshare.vsliveshare-pack",
+        "pkief.material-icon-theme",
+        "akashrajkn.language-netlogo-code",
+        "ms-vscode-remote.remote-containers",
+        "github.codespaces"
+    ]
+}
