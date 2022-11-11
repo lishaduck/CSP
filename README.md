@@ -47,6 +47,7 @@ Oh, and please don't cheat. Mrs. Carson is (probably) fine if you use it to chec
 [art]: #art-is-unit-1
 [black]: https://github.com/psf/black
 [bottom line]: /csp/bottom_line.py
+[catch-a-turtle]: /csp/art/functions/catch-a-turtle/
 [csp]: https://apstudents.collegeboard.org/courses/ap-computer-science-principles
 [complaint]: /csp/compaint.py
 [funcs]: /csp/art/functions/
