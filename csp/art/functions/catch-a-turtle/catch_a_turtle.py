@@ -1,4 +1,4 @@
-"""Program catch_a_turtle.py - It's a game with a persistant state leaderboard.
+"""Program catch_a_turtle.py - Its a game with a persistant state leaderboard.
 
 Catch a turtle
 [Victor and Eli - 11.8-11]
@@ -21,9 +21,11 @@ if __name__ == "__main__":
         print(__doc__)
 
 
-# --set the screen and turtle--
 LEADERBOARD_FILE_NAME = "leaderboard.txt"
 player_name = input("What shall the leaderboard remember you as, should you win? ")
+
+
+# --set the screen and turtle--
 wn = trtl.Screen()
 wn.bgcolor("black")
 spot = trtl.Turtle()
