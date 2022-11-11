@@ -4,6 +4,7 @@
 
 import turtle as trtl
 
+Rank = trtl.Turtle()
 # set the levels of scoring
 bronze_score = 15
 silver_score = 20
@@ -29,7 +30,7 @@ def get_names(file_name):
                 index = index + 1
             print(leader_name)
             # TODO 2: add the player name to the names list
-
+            Rank.append(leader_name)
         leaderboard_file.close()
 
     #  TODO 6: return the names list in place of the empty list
