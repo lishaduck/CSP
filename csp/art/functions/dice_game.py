@@ -77,7 +77,7 @@ def find_winner(comp_dice_list: list[int], user_dice_list: list[int]):
         finish = art.text2art("You win!", font="random-large")  # define art
         typing_print(finish, 0.005)  # draw the art
         typing_print("To commemorate your victory, Tim Peters wrote you some poetry:")
-        import this
+        import this  # pylint: disable=C0415
 
         print(f'"{this.__name__}"is the truth, the 19 of the 20, the zen á la python.')
     elif user_total < computer_total:
@@ -117,11 +117,11 @@ time.sleep(1)
 typing_print("Loading |", end="\r")
 for i in range(random.randint(5, 20)):
     time.sleep(0.12)
-    print("Loading \\", end="\r")
+    print("Loading /", end="\r")
     time.sleep(0.12)
     print("Loading |", end="\r")
     time.sleep(0.12)
-    print("Loading /", end="\r")
+    print("Loading \\", end="\r")
     time.sleep(0.12)
     print("Loading -", end="\r")
 
