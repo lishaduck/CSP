@@ -4,8 +4,6 @@
 
 This repo tracks my progress in [Advanced Placement][ap] [Project Lead the Way][pltw] [Computer Science Principles][csp], the second class in the [Project Lead the Way Computer Science][pltw csp] classes.
 
-As a note, if you want to use this as a template, you can do so at [lishaduck/CSP-template](https://github.com/lishaduck/CSP-template).
-
 This repo is roughly organized by unit:
 
 -   ## [`art`](/csp/art/) is unit 1: Creative Computing for All
@@ -32,7 +30,11 @@ This repo is roughly organized by unit:
     -   [`bottom_line.py`][bottom line] was made for health. It's a simple python-powered CLI that determines if you have drunk enough water.
     -   [`complaint.py`][complaint] was made for fun in [CSP][art]. It's a python program which makes a `TurtleScreen()` that displays a custom message.
 
-To run tests, use pytest.
+To run tests, run `pytest`.
+
+# Use as a template
+This repository has been marked as a template. For more information, and instructions for setup, see the [wiki](https://github.com/lishaduck/CSP/wiki).
+
 
 [ap]: https://apstudents.collegeboard.org/
 [pltw]: https://www.pltw.org/
