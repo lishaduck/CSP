@@ -8,7 +8,7 @@ As a note, if you want to use this as a template, you can do so at [lishaduck/CS
 
 This repo is roughly organized by unit:
 
--   ## [`art`](/csp/art/) is unit 1
+-   ## [`art`](/csp/art/) is unit 1: Creative Computing for All
 
     -   [`turtles`][turtles folder] is lesson 1.1.
         -   [`115codefilesCSP`][115codefiles] is a set of 3 python turtle programs which move a robot around a maze.
