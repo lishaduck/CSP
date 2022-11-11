@@ -2,7 +2,7 @@
 name = "csp"
 version = "0.0.0"
 description = "My CSP classwork."
-authors = ["lishaduck <88557639+lishaduck@users.noreply.github.com>"]
+authors = ["Elisha Dukes <88557639+lishaduck@users.noreply.github.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -39,7 +39,7 @@ pydocstringformatter = "0.7.2"
 pyupgrade = "^3.2.2"
 poetry = "^1.2.2"
 sphinx = "^5.3.0"
-pydocstyle = "^6.1.1"
+pydocstyle = { version = "^6.1.1", extras = ["toml"] }
 
 
 [build-system]
