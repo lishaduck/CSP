@@ -4,6 +4,8 @@
 
 This repo tracks my progress in [Advanced Placement][ap] [Project Lead the Way][pltw] [Computer Science Principles][csp], the second class in the [Project Lead the Way Computer Science][pltw csp] classes.
 
+As a note, if you want to use this as a template, you can do so at [lishaduck/CSP-template](https://github.com/lishaduck/CSP-template).
+
 This repo is roughly organized by unit:
 
 -   ## [`art`](/csp/art/) is unit 1
