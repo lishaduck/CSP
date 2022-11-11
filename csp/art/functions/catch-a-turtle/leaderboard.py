@@ -10,8 +10,8 @@ silver_score = 20
 gold_score = 25
 
 
-# return names in the leaderboard file
 def get_names(file_name):
+    """Return names in the leaderboard file."""
     with open(
         file_name, "r", encoding="utf-8"
     ) as leaderboard_file:  # be sure you have created this
@@ -33,8 +33,8 @@ def get_names(file_name):
     return []
 
 
-# return scores from the leaderboard file
 def get_scores(file_name):
+    """Return scores from the leaderboard file."""
     with open(
         file_name, "r", encoding="utf-8"
     ) as leaderboard_file:  # be sure you have created this
@@ -56,11 +56,10 @@ def get_scores(file_name):
     return []
 
 
-# update leaderboard by inserting the current player and score to the list at the correct position
 def update_leaderboard(
     file_name, leader_names, leader_scores, player_name, player_score
 ):
-
+    """Update leaderboard by inserting the current player and score to the list at the correct position."""
     index = 0
     # TODO 8: loop through all the scores in the existing leaderboard list
 
@@ -90,19 +89,17 @@ def update_leaderboard(
         leaderboard_file.close()
 
 
-# draw leaderboard and display a message to player
 def draw_leaderboard(
     high_scorer, leader_names, leader_scores, turtle_object: trtl.Turtle, player_score
 ):
-    """
-    @LeParco1's version:
+    """Draw leaderboard and display a message to player.
 
+    @LeParco1's version:
     # def leaderboard():
     #     \"""Leaderboard\"""
     #     leaderboard = trtl.Turtle()
     #     leaderboard.hideturtle()
     #     leaderboard.write(f"Player Name:     Score:\n{name}     {score}")
-
     """
     # clear the screen and move turtle object to (-200, 100) to start drawing the leaderboard
     font_setup = ("Arial", 20, "normal")

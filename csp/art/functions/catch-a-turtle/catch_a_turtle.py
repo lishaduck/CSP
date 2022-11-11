@@ -14,7 +14,7 @@ import leaderboard as lb
 # --set the screen and turtle--
 wn = trtl.Screen()
 wn.bgcolor("black")
-leaderboard_file_name = "leaderboard.txt"
+LEADERBOARD_FILE_NAME = "leaderboard.txt"
 player_name = input("What shall the leaderboard remember you as, should you win? ")
 spot = trtl.Turtle()
 spot.speed(10)
@@ -78,12 +78,12 @@ def start_game():
 
 
 # Game Code
-spot_color = "light green"
+SPOT_COLOR = "light green"
 spot_size = rand.randint(3, 5)
-spot_shape = "turtle"
-spot.shape(spot_shape)
+SPOT_SHAPE = "turtle"
+spot.shape(SPOT_SHAPE)
 spot.shapesize(spot_size)
-spot.fillcolor(spot_color)
+spot.fillcolor(SPOT_COLOR)
 spot.goto(-100, 0)
 
 
@@ -94,13 +94,13 @@ def manage_leaderboard():
     global spot
 
     # get the names and scores from the leaderboard file
-    leader_names_list = lb.get_names(leaderboard_file_name)
-    leader_scores_list = lb.get_scores(leaderboard_file_name)
+    leader_names_list = lb.get_names(LEADERBOARD_FILE_NAME)
+    leader_scores_list = lb.get_scores(LEADERBOARD_FILE_NAME)
 
     # show the leaderboard with or without the current player
     if len(leader_scores_list) < 5 or score >= leader_scores_list[4]:
         lb.update_leaderboard(
-            leaderboard_file_name,
+            LEADERBOARD_FILE_NAME,
             leader_names_list,
             leader_scores_list,
             player_name,
