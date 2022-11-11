@@ -12,10 +12,10 @@ import turtle as trtl
 import leaderboard as lb
 
 # --set the screen and turtle--
-wn = trtl.Screen()
-wn.bgcolor("black")
 LEADERBOARD_FILE_NAME = "leaderboard.txt"
 player_name = input("What shall the leaderboard remember you as, should you win? ")
+wn = trtl.Screen()
+wn.bgcolor("black")
 spot = trtl.Turtle()
 spot.speed(10)
 score = 0
