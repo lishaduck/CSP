@@ -30,7 +30,7 @@ def get_names(file_name):
         leaderboard_file.close()
 
     #  TODO 6: return the names list in place of the empty list
-    return []
+    return names
 
 
 def get_scores(file_name):
@@ -53,7 +53,7 @@ def get_scores(file_name):
         leaderboard_file.close()
 
     # TODO 7: return the scores in place of the empty list
-    return []
+    return scores
 
 
 def update_leaderboard(
@@ -77,8 +77,10 @@ def update_leaderboard(
     # TODO 12: store the latest leaderboard back in the file
 
     with open(
-        file_name, "w", encoding="utf-8"
-    ) as leaderboard_file:  # this mode opens the file and erases its contents for a fresh start
+        file_name,
+        "w",  # this mode opens the file and erases its contents for a fresh start
+        encoding="utf-8",
+    ) as leaderboard_file:
 
         # TODO 13 loop through all the leaderboard elements and write them to the the file
         # for :
@@ -140,4 +142,6 @@ def draw_leaderboard(
 
     # turtle_object.write("You earned a gold medal!", font=font_setup)
     # turtle_object.write("You earned a silver medal!", font=font_setup)
+    # turtle_object.write("You earned a bronze medal!", font=font_setup)
+    # turtle_object.write("You earned a bronze medal!", font=font_setup)
     # turtle_object.write("You earned a bronze medal!", font=font_setup)
