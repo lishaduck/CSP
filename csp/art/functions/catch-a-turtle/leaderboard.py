@@ -11,8 +11,11 @@ silver_score = 20
 gold_score = 25
 
 
-def get_names(file_name):
-    """Return names in the leaderboard file."""
+def get_names(file_name: str):
+    """Return names in the leaderboard file.
+
+    :param file_name: name of the file.
+    """
     with open(
         file_name, "r", encoding="utf-8"
     ) as leaderboard_file:  # be sure you have created this
@@ -24,16 +27,16 @@ def get_names(file_name):
             leader_name = ""
             index = 0
 
-            # TODO 1: use a while loop to read the leader name from the line (format is "leader_name,leader_score")
+            # use a while loop to read the leader name from the line (format is "leader_name,leader_score")
             while line[index] != ",":
                 leader_name = leader_name + line[index]
                 index = index + 1
             print(leader_name)
-            # TODO 2: add the player name to the names list
-            Rank.append(leader_name)
+            # add the player name to the names list
+            names.append(leader_name)
         leaderboard_file.close()
 
-    #  TODO 6: return the names list in place of the empty list
+    #  return the names list in place of the empty list
     return names
 
 
@@ -48,15 +51,19 @@ def get_scores(file_name):
             leader_score = ""
             index = 0
 
-            # TODO 3: use a while loop to index beyond the comma, skipping the player's name
-
-            # TODO 4: use a while loop to get the score
+            # use a while loop to index beyond the comma, skipping the player's name
+            while line[index] != ",":
+                index = index + 1
+            # use a while loop to get the score
+            while line[index] != "\n":
+                leader_score = leader_score + line[index]
+                index = index + 1
 
             # TODO 5: add the player score to the scores list
 
         leaderboard_file.close()
 
-    # TODO 7: return the scores in place of the empty list
+    # return the scores in place of the empty list
     return scores
 
 
@@ -132,10 +139,10 @@ def draw_leaderboard(
 
     # TODO 14: display message about player making/not making leaderboard
 
-    # turtle_object.write("Congratulations!\nYou made the leaderboard!", font=font_setup)
-    # turtle_object.write(
-    #     "Sorry!\nYou didn't make the leaderboard.\nMaybe next time!", font=font_setup
-    # )
+    turtle_object.write("Congratulations!\nYou made the leaderboard!", font=font_setup)
+    turtle_object.write(
+        "Sorry!\nYou didn't make the leaderboard.\nMaybe next time!", font=font_setup
+    )
 
     # move turtle to a new line
     turtle_object.penup()
@@ -144,8 +151,8 @@ def draw_leaderboard(
 
     # TODO 15: Display a gold/silver/bronze message if player earned a gold/silver/or bronze medal; display nothing if no medal
 
-    # turtle_object.write("You earned a gold medal!", font=font_setup)
-    # turtle_object.write("You earned a silver medal!", font=font_setup)
-    # turtle_object.write("You earned a bronze medal!", font=font_setup)
-    # turtle_object.write("You earned a bronze medal!", font=font_setup)
-    # turtle_object.write("You earned a bronze medal!", font=font_setup)
+    turtle_object.write("You earned a gold medal!", font=font_setup)
+    turtle_object.write("You earned a silver medal!", font=font_setup)
+    turtle_object.write("You earned a bronze medal!", font=font_setup)
+    turtle_object.write("You earned a bronze medal!", font=font_setup)
+    turtle_object.write("You earned a bronze medal!", font=font_setup)

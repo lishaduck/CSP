@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
 
 # --set the screen and turtle--
-LEADERBOARD_FILE_NAME = "./leaderboard.txt"
+LEADERBOARD_FILE_NAME = "leaderboard.txt"
 player_name = input("What shall the leaderboard remember you as, should you win? ")
 wn = trtl.Screen()
 wn.bgcolor("black")
