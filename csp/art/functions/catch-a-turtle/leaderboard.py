@@ -24,7 +24,10 @@ def get_names(file_name):
             index = 0
 
             # TODO 1: use a while loop to read the leader name from the line (format is "leader_name,leader_score")
-
+            while line[index] != ",":
+                leader_name = leader_name + line[index]
+                index = index + 1
+            print(leader_name)
             # TODO 2: add the player name to the names list
 
         leaderboard_file.close()
@@ -93,15 +96,15 @@ def update_leaderboard(
 
 def draw_leaderboard(
     high_scorer, leader_names, leader_scores, turtle_object: trtl.Turtle, player_score
-):
+):  # noqa: D300, D301
     """Draw leaderboard and display a message to player.
 
     @LeParco1's version:
     # def leaderboard():
-    #     \"""Leaderboard\"""
+    #     \"\"\"Leaderboard\"\"\"
     #     leaderboard = trtl.Turtle()
     #     leaderboard.hideturtle()
-    #     leaderboard.write(f"Player Name:     Score:\n{name}     {score}")
+    #     leaderboard.write(f"Player Name:     Score:\n{name}     {score}# ")
     """
     # clear the screen and move turtle object to (-200, 100) to start drawing the leaderboard
     font_setup = ("Arial", 20, "normal")

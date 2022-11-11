@@ -1,6 +1,6 @@
-"""Program catch_a_turtle.py - Catch a turtle!
+"""Program catch_a_turtle.py - It's a game with a persistant state leaderboard.
 
-It's a game!
+Catch a turtle
 [Victor and Eli - 11.8-11]
 """
 
@@ -11,8 +11,18 @@ import turtle as trtl
 
 import leaderboard as lb
 
+# -------entrypoint--------
+if __name__ == "__main__":
+    import sys
+
+    if sys.argv[1:]:
+        print("Let's play!")
+    else:
+        print(__doc__)
+
+
 # --set the screen and turtle--
-LEADERBOARD_FILE_NAME = "leaderboard.txt"
+LEADERBOARD_FILE_NAME = "./leaderboard.txt"
 player_name = input("What shall the leaderboard remember you as, should you win? ")
 wn = trtl.Screen()
 wn.bgcolor("black")
@@ -38,7 +48,7 @@ counter.goto(-50, 250)
 
 # -----game functions-----
 def countdown():
-    """Function: countdown() - timer."""
+    """Create the timer and score."""
     global timer
     global timer_up
     counter.clear()
@@ -116,13 +126,3 @@ def manage_leaderboard():
 spot.onclick(spot_clicked)
 wn.ontimer(countdown, counter_interval)
 wn.mainloop()
-
-# -------entrypoint--------
-if __name__ == "__main__":
-    import sys
-
-    if sys.argv[1:]:
-        start_game()
-    else:
-        print(__doc__)
-        start_game()
