@@ -1,8 +1,14 @@
-import curses
+from curses import wrapper
 
 
-def wrapped():
-    pass
+def main(stdscr):
+    # Clear screen
+    stdscr.clear()
+    i = 2
+    stdscr.addstr(i, 1, f"10 divided by {i} is {10 / i}")
+
+    stdscr.refresh()
+    stdscr.getkey()
 
 
-curses.wrapper(wrapped())
+wrapper(main)
