@@ -1,7 +1,4 @@
-"""Program: spiro.py - Overlay sprio projects.
-
-TODO: figure out how to play them all
-"""
+"""Program: spiro.py - Overlay sprio projects. TODO: figure out how to play them all."""
 import a_row_of_colored_squares
 import circle_of_circles
 import hex_art

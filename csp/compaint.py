@@ -15,18 +15,20 @@ import turtle as trtl
 
 
 def compainer(
-    reason, paint_color="purple", text_font="Arial", text_size=75, text_styling="italic"
+    reason: str,
+    paint_color: str = "purple",
+    text_font: str = "Arial",
+    text_size: int = 75,
+    text_styling: str = "italic",
 ):
-    """
-    Args:
+    """Complain.
 
-    reason: string - Reason you want to complain. Makes up sign text.
-    paint_color: string
-    text_font: string
-    text_size: int
-    text_styling: string
+    :param reason: Reason you want to complain. Makes up sign text.
+    :param paint_color: Color of the text.
+    :param text_font: Font of the text.
+    :param text_size: Size of the text.
+    :param text_styling: Styling of the text. Can be either empty, or bold, or underline.
     """
-
     paint = trtl.Turtle()
 
     paint.color(paint_color)

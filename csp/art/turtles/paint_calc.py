@@ -6,19 +6,18 @@ $ python3 paint_calc
 <prompts>
 returns -
 
-gallons_of_paint: int
+:return: gallons of paint
+:rtype: int
 """
 
 
-def calc(height, length, windows, doors):
-    """
-    Calculates paint gallons.
+def calc(height: int, length: int, windows: int = 0, doors: int = 0):
+    """Calculate gallons of paint for a wall, given the number of windows and doors.
 
-    Args:
-    height: int
-    lenght: int
-    windows: int
-    doors: int
+    :param height: Height of the wall.
+    :param length: Length of the wall.
+    :param windows: Number of windows.
+    :param doors: Number of doors.
     """
     wall_area = 2 * length * height
     no_paint_area = 20 * doors + 15 * windows

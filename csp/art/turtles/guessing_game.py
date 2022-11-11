@@ -6,7 +6,7 @@ import random
 
 
 def guess_num():
-    """This is the number game.
+    """Play the number game.
 
     No Args
     """
