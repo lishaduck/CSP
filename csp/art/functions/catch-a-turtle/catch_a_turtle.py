@@ -59,7 +59,7 @@ def countdown():
     global timer_up
     counter.clear()
     if timer <= 0:
-        counter.write(f"Time's Up!    Score: {score}", font=font_setup)
+        counter.write(f"Time's Up!      Score: {score}", font=font_setup)
         timer_up = True
         manage_leaderboard()
         spot.hideturtle()
@@ -87,10 +87,6 @@ def update_score():
     global score
     score = score + 1
     print(score)
-
-
-def start_game():
-    pass
 
 
 # Game Code
