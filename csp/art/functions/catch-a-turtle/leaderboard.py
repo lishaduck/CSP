@@ -3,6 +3,7 @@
 
 
 import turtle as trtl
+from pathlib import Path
 
 Rank = trtl.Turtle()
 # set the levels of scoring
@@ -11,18 +12,19 @@ silver_score = 20
 gold_score = 25
 
 
-def get_names(file_name: str):
+def get_names(file_name: Path):
     """Return names in the leaderboard file.
 
     :param file_name: name of the file.
     """
-    with open(
-        file_name, "r", encoding="utf-8"
+    with file_name.open(
+        "r", encoding="utf-8"
     ) as leaderboard_file:  # be sure you have created this
 
         # use a for loop to iterate through the content of the file, one line at a time
         # note that each line in the file has the format "leader_name,leader_score" for example "Pat,50"
         names = []
+        print("Getting names")
         for line in leaderboard_file:
             leader_name = ""
             index = 0
@@ -40,13 +42,14 @@ def get_names(file_name: str):
     return names
 
 
-def get_scores(file_name):
+def get_scores(file_name: Path):
     """Return scores from the leaderboard file."""
-    with open(
-        file_name, "r", encoding="utf-8"
+    with file_name.open(
+        "r", encoding="utf-8"
     ) as leaderboard_file:  # be sure you have created this
 
         scores = []
+        print("Getting scores.")
         for line in leaderboard_file:
             leader_score = ""
             index = 0
@@ -68,7 +71,7 @@ def get_scores(file_name):
 
 
 def update_leaderboard(
-    file_name, leader_names, leader_scores, player_name, player_score
+    file_name: Path, leader_names, leader_scores, player_name, player_score
 ):
     """Update leaderboard by inserting the current player and score to the list at the correct position."""
     index = 0
@@ -87,8 +90,7 @@ def update_leaderboard(
 
     # TODO 12: store the latest leaderboard back in the file
 
-    with open(
-        file_name,
+    with file_name.open(
         "w",  # this mode opens the file and erases its contents for a fresh start
         encoding="utf-8",
     ) as leaderboard_file:
@@ -103,7 +105,11 @@ def update_leaderboard(
 
 
 def draw_leaderboard(
-    high_scorer, leader_names, leader_scores, turtle_object: trtl.Turtle, player_score
+    high_scorer,
+    leader_names: list[str],
+    leader_scores,
+    turtle_object: trtl.Turtle,
+    player_score,
 ):  # noqa: D300, D301
     """Draw leaderboard and display a message to player.
 
@@ -125,7 +131,7 @@ def draw_leaderboard(
     # loop through the lists and use the same index to display the corresponding name and score, separated by a tab space '\t'
     for index, name in enumerate(leader_names):
         turtle_object.write(
-            str(index + 1) + "\t" + name + "\t" + str(leader_scores[index]),
+            str(index + 1) + "\t" + name + "\t" + str(name),
             font=font_setup,
         )
         turtle_object.penup()

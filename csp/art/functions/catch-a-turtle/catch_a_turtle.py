@@ -6,8 +6,10 @@ Catch a turtle
 
 
 # -----import statements-----
+import os
 import random as rand
 import turtle as trtl
+from pathlib import Path
 
 import leaderboard as lb
 
@@ -21,7 +23,9 @@ if __name__ == "__main__":
         print(__doc__)
 
 
-LEADERBOARD_FILE_NAME = "leaderboard.txt"
+p = Path(os.path.realpath(__file__)).parent
+LEADERBOARD_FILE_NAME = Path.resolve(p / "leaderboard.txt")
+print(LEADERBOARD_FILE_NAME)
 player_name = input("What shall the leaderboard remember you as, should you win? ")
 
 
