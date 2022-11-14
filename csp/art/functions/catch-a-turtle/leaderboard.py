@@ -102,7 +102,7 @@ def draw_leaderboard(
     font_setup = ("Arial", 20, "normal")
     turtle_object.clear()
     turtle_object.penup()
-    turtle_object.goto(-160, 200)
+    turtle_object.goto(-200, 200)
     turtle_object.hideturtle()
     turtle_object.down()
 
@@ -113,12 +113,12 @@ def draw_leaderboard(
             font=font_setup,
         )
         turtle_object.penup()
-        turtle_object.goto(-160, int(turtle_object.ycor()) - 50)
+        turtle_object.goto(-200, int(turtle_object.ycor()) - 50)
         turtle_object.down()
 
     # move turtle to a new line
     turtle_object.penup()
-    turtle_object.goto(-160, int(turtle_object.ycor()) - 50)
+    turtle_object.goto(-200, int(turtle_object.ycor()) - 50)
     turtle_object.pendown()
 
     # display message about player making/not making leaderboard
@@ -137,10 +137,10 @@ def draw_leaderboard(
 
     # move turtle to a new line
     turtle_object.penup()
-    turtle_object.goto(-160, int(turtle_object.ycor()) - 50)
+    turtle_object.goto(-200, int(turtle_object.ycor()) - 50)
     turtle_object.pendown()
 
-    # Display a gold/silver/bronze message if player earned a gold/silver/or bronze medal; display nothing if no medal
+    # Display a gold/silver/bronze message if player earned a gold/silver/bronze medal; display nothing if no medal
     if MUD_SCORE <= player_score < BRONZE_SCORE:
         turtle_object.write(
             "You earned a dried piece of mud! It doesn't even resemble a medal... It's just a circle of mud. Oh, and you got a ruble, don't spend it all in one place.",
@@ -161,6 +161,6 @@ def draw_leaderboard(
 
     # move turtle to a new line
     turtle_object.penup()
-    turtle_object.goto(-160, int(turtle_object.ycor()) - 50)
+    turtle_object.goto(-200, int(turtle_object.ycor()) - 50)
     turtle_object.pendown()
     turtle_object.write(f"You caught the turtle {player_score} times.", font=font_setup)
