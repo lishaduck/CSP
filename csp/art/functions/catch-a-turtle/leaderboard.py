@@ -15,7 +15,8 @@ gold_score = 25
 def get_names(file_name: Path) -> list[str]:
     """Return names in the leaderboard file.
 
-    :param file_name: name of the file.
+    :param file_name: A file name, in the format of a path.
+    :return: A list of integers representing the scores.
     """
     with file_name.open(
         "r", encoding="utf-8"
@@ -43,7 +44,11 @@ def get_names(file_name: Path) -> list[str]:
 
 
 def get_scores(file_name: Path) -> list[int]:
-    """Return scores from the leaderboard file."""
+    """Return scores from the leaderboard file.
+
+    :param file_name: A file name, in the format of a path.
+    :return: A list of integers representing the scores.
+    """
     with file_name.open(
         "r", encoding="utf-8"
     ) as leaderboard_file:  # be sure you have created this
