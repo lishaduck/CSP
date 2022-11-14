@@ -12,7 +12,7 @@ silver_score = 20
 gold_score = 25
 
 
-def get_names(file_name: Path):
+def get_names(file_name: Path) -> list[str]:
     """Return names in the leaderboard file.
 
     :param file_name: name of the file.
@@ -42,13 +42,13 @@ def get_names(file_name: Path):
     return names
 
 
-def get_scores(file_name: Path):
+def get_scores(file_name: Path) -> list[int]:
     """Return scores from the leaderboard file."""
     with file_name.open(
         "r", encoding="utf-8"
     ) as leaderboard_file:  # be sure you have created this
 
-        scores = []
+        scores: list[int] = []
         print("Getting scores.")
         for line in leaderboard_file:
             leader_score = ""
@@ -73,8 +73,12 @@ def get_scores(file_name: Path):
 
 
 def update_leaderboard(
-    file_name: Path, leader_names, leader_scores, player_name, player_score
-):
+    file_name: Path,
+    leader_names: list[str],
+    leader_scores: list[int],
+    player_name: str,
+    player_score: int,
+) -> None:
     """Update leaderboard by inserting the current player and score to the list at the correct position."""
     index = 0
     # TODO 8: loop through all the scores in the existing leaderboard list
@@ -107,12 +111,12 @@ def update_leaderboard(
 
 
 def draw_leaderboard(
-    high_scorer,
+    high_scorer: bool,
     leader_names: list[str],
-    leader_scores,
+    leader_scores: list[int],
     turtle_object: trtl.Turtle,
-    player_score,
-):  # noqa: D300, D301
+    player_score: int,
+) -> None:  # noqa: D300, D301
     """Draw leaderboard and display a message to player.
 
     @LeParco1's version:
