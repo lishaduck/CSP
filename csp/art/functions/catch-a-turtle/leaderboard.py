@@ -1,5 +1,4 @@
-"""Program: leaderboard.py - The leaderboard module to be used in Activity 1.2.2
-"""
+"""Program: leaderboard.py - The leaderboard module to be used in Activity 1.2.2."""
 
 
 import csv
@@ -8,9 +7,11 @@ from pathlib import Path
 
 Rank = trtl.Turtle()
 # set the levels of scoring
-bronze_score = 15
-silver_score = 20
-gold_score = 25
+MUD_SCORE = 5
+BRONZE_SCORE = 20
+SILVER_SCORE = 25
+GOLD_SCORE = 40
+PLATINUM_SCORE = 100
 
 
 def get_names(file_name: Path) -> list[str]:
@@ -88,22 +89,19 @@ def update_leaderboard(
     player_score: int,
 ) -> None:
     """Update leaderboard by inserting the current player and score to the list at the correct position."""
-    index = 0
-    # TODO 8: loop through all the scores in the existing leaderboard list
-
-    # for :
-    #     # TODO 9: check if this is the position to insert new score at
-    #     if ():
-    #         break
-    #     else:
-    #         index = index + 1
-
-    # TODO 10: insert new player and score
-
-    # TODO 11: keep both lists at 5 elements only (top 5 players)
+    index = 1
+    # loop through all the scores in the existing leaderboard list
+    for i in range(5):
+        # check if this is the position to insert new score at
+        if player_score > leader_scores[i]:
+            leader_names.pop()
+            leader_names.insert(index, player_name)
+            leader_scores.pop()
+            leader_scores.insert(index, player_score)
+        else:
+            index = index + 1
 
     # TODO 12: store the latest leaderboard back in the file
-
     with file_name.open(
         "w",  # this mode opens the file and erases its contents for a fresh start
         encoding="utf-8",
@@ -112,10 +110,10 @@ def update_leaderboard(
 
         leaderboard_writer = csv.writer(leaderboard_file, dialect="excel")
         # TODO 13 loop through all the leaderboard elements and write them to the the file
-        # for :
-        #     leaderboard_file.write(
-        #         leader_names[index] + "," + str(leader_scores[index]) + "\n"
-        #     )
+        for i in leaderboard_file:
+            leaderboard_writer.writerow(
+                leader_names[index] + "," + str(leader_scores[index])
+            )
         leaderboard_file.close()
 
 
@@ -177,12 +175,21 @@ def draw_leaderboard(
     turtle_object.pendown()
 
     # TODO 15: Display a gold/silver/bronze message if player earned a gold/silver/or bronze medal; display nothing if no medal
-    turtle_object.write("You caught the turtle", player_score, "times.")
-    if player_score >= bronze_score and player_score < silver_score:
+    turtle_object.write(f"You caught the turtle {player_score} times.")
+    if MUD_SCORE <= player_score < BRONZE_SCORE:
+        turtle_object.write(
+            "You earned a dried piece of mud! It doesn't even resemble a medal... It's just a circle of mud. Oh, and you got a ruble, don't spend it all in one place.",
+            font=font_setup,
+        )
+    elif BRONZE_SCORE <= player_score < SILVER_SCORE:
         turtle_object.write("You earned a bronze medal!", font=font_setup)
-    elif player_score >= silver_score and player_score < gold_score:
+    elif SILVER_SCORE <= player_score < GOLD_SCORE:
         turtle_object.write("You earned a silver medal!", font=font_setup)
-    elif player_score >= gold_score:
+    elif GOLD_SCORE <= player_score < PLATINUM_SCORE:
         turtle_object.write("You earned a gold medal!", font=font_setup)
+    elif PLATINUM_SCORE <= player_score:
+        turtle_object.write("Poggers", font=font_setup)
     else:
-        turtle_object.write("Better Luck Next Time...")
+        turtle_object.write(
+            "Here's an Iranian Rial. You might as well spend it all in one place. Better Luck Next Time..."
+        )
