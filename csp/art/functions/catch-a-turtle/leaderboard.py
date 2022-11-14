@@ -118,7 +118,7 @@ def draw_leaderboard(
     #     \"\"\"Leaderboard\"\"\"
     #     leaderboard = trtl.Turtle()
     #     leaderboard.hideturtle()
-    #     leaderboard.write(f"Player Name:     Score:\n{name}     {score}# ")
+    #     leaderboard.write(f"Player Name:     Score:\n{name}     {score}")
     """
     # clear the screen and move turtle object to (-200, 100) to start drawing the leaderboard
     font_setup = ("Arial", 20, "normal")
