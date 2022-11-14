@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
 
 p = Path(os.path.realpath(__file__)).parent
-LEADERBOARD_FILE_NAME = Path.resolve(p / "leaderboard.txt")
+LEADERBOARD_FILE_NAME = Path.resolve(p / "leaderboard.csv")
 print(LEADERBOARD_FILE_NAME)
 player_name = input("What shall the leaderboard remember you as, should you win? ")
 
