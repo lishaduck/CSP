@@ -32,6 +32,10 @@ def get_names(file_name: Path) -> list[str]:
             index = 0
 
             # use a while loop to read the leader name from the line (format is "leader_name,leader_score")
+            # TODO: fix IndexError
+            # File "/Users/dukese01/CSP/csp/art/functions/catch-a-turtle/leaderboard.py", line 35, in get_names
+            #   while line[index] != ",":
+            # IndexError: list index out of range
             while line[index] != ",":
                 leader_name = leader_name + line[index]
                 index = index + 1
@@ -70,7 +74,7 @@ def get_scores(file_name: Path) -> list[int]:
                 index = index + 1
             leader_score = leader_score.replace(
                 ",", ""
-            )  # Thanks to https://www.delftstack.com/howto/python/remove-commas-from-string-in-python/
+            )  # Source: https://www.delftstack.com/howto/python/remove-commas-from-string-in-python/
 
             # add the player score to the scores list
             leader = int(leader_score)
@@ -157,12 +161,13 @@ def draw_leaderboard(
     turtle_object.pendown()
 
     # TODO 14: display message about player making/not making leaderboard
-    if player_score > leader_scores[5]:
-        turtle_object.write(
-            "Congratulations!\nYou made the leaderboard!", font=font_setup
-        )
-    elif player_score == leader_scores[5]:
-        turtle_object.write("So close...")
+    if high_scorer:
+        if player_score > leader_scores[5]:
+            turtle_object.write(
+                "Congratulations!\nYou made the leaderboard!", font=font_setup
+            )
+        elif player_score <= leader_scores[5]:
+            turtle_object.write("So close...")
     else:
         turtle_object.write(
             "Sorry!\nYou didn't make the leaderboard.\nMaybe next time!",
