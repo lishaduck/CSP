@@ -2,6 +2,7 @@
 """
 
 
+import csv
 import turtle as trtl
 from pathlib import Path
 
@@ -18,15 +19,14 @@ def get_names(file_name: Path) -> list[str]:
     :param file_name: A file name, in the format of a path.
     :return: A list of integers representing the scores.
     """
-    with file_name.open(
-        "r", encoding="utf-8"
-    ) as leaderboard_file:  # be sure you have created this
+    with file_name.open("r", encoding="utf-8", newline="") as leaderboard_file:
 
         # use a for loop to iterate through the content of the file, one line at a time
         # note that each line in the file has the format "leader_name,leader_score" for example "Pat,50"
-        names = []
+        names: list[str] = []
         print("Getting names")
-        for line in leaderboard_file:
+        name_reader = csv.reader(leaderboard_file, dialect="excel")
+        for line in name_reader:
             leader_name = ""
             index = 0
 
@@ -38,7 +38,7 @@ def get_names(file_name: Path) -> list[str]:
             # add the player name to the names list
             names.append(leader_name)
         leaderboard_file.close()
-
+    print(names)
     #  return the names list in place of the empty list
     return names
 
@@ -55,7 +55,8 @@ def get_scores(file_name: Path) -> list[int]:
 
         scores: list[int] = []
         print("Getting scores.")
-        for line in leaderboard_file:
+        score_reader = csv.reader(leaderboard_file, dialect="excel")
+        for line in score_reader:
             leader_score = ""
             index = 0
 
@@ -66,13 +67,15 @@ def get_scores(file_name: Path) -> list[int]:
             while line[index] != "\n":
                 leader_score = leader_score + line[index]
                 index = index + 1
+            leader_score = leader_score.replace(
+                ",", ""
+            )  # Thanks to https://www.delftstack.com/howto/python/remove-commas-from-string-in-python/
 
             # add the player score to the scores list
             leader = int(leader_score)
             scores.append(leader)
         print(scores)
         leaderboard_file.close()
-
     # return the scores in place of the empty list
     return scores
 
@@ -104,14 +107,15 @@ def update_leaderboard(
     with file_name.open(
         "w",  # this mode opens the file and erases its contents for a fresh start
         encoding="utf-8",
+        newline="",
     ) as leaderboard_file:
 
+        leaderboard_writer = csv.writer(leaderboard_file, dialect="excel")
         # TODO 13 loop through all the leaderboard elements and write them to the the file
         # for :
         #     leaderboard_file.write(
         #         leader_names[index] + "," + str(leader_scores[index]) + "\n"
         #     )
-
         leaderboard_file.close()
 
 
