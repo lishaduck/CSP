@@ -62,8 +62,10 @@ def get_scores(file_name: Path):
                 leader_score = leader_score + line[index]
                 index = index + 1
 
-            # TODO 5: add the player score to the scores list
-
+            # add the player score to the scores list
+            leader = int(leader_score)
+            scores.append(leader)
+        print(scores)
         leaderboard_file.close()
 
     # return the scores in place of the empty list
