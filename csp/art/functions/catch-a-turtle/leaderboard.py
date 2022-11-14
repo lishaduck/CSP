@@ -98,7 +98,6 @@ def draw_leaderboard(
     player_score: int,
 ) -> None:
     """Draw leaderboard and display a message to player."""
-
     # clear the screen and move turtle object to (-200, 100) to start drawing the leaderboard
     font_setup = ("Arial", 20, "normal")
     turtle_object.clear()
