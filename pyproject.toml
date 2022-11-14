@@ -73,6 +73,8 @@
 
     ignore = ["docs/conf.py"]
 
+    max-line-length = 88
+
 [tool.black]
     line-length = 88
     preview = false
