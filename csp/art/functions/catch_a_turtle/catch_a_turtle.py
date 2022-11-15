@@ -28,11 +28,11 @@ def game():
     wn.bgcolor("black")
     spot = trtl.Turtle()
     spot.speed(10)
-    score = 0
+    score = 10
 
     # -----countdown variables-----
     FONT_SETUP = ("Arial", 20, "normal")
-    timer = 30
+    timer = 1
     COUNTER_INTERVAL = 1000  # 1000 represents 1 second
     timer_up = False
 

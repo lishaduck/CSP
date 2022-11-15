@@ -111,10 +111,13 @@ def draw_leaderboard(
     turtle_object.down()
 
     # draw the leaderboard title
-    turtle_object.write(
-        art.text2art("Time's up!", font="random-medium"),
-        font=("Courier New", 20, "normal"),
-    )
+    if player_score > leader_scores[0]:
+        turtle_object.write(art.text2art("NEW HIGH SCORE!!!"))
+    else:
+        turtle_object.write(
+            art.text2art("Time's up!", font="random-medium"),
+            font=("Courier New", 20, "normal"),
+        )
 
     # loop through the lists and use the same index to display the corresponding name
     # and score, separated by a tab space '\t'
@@ -148,13 +151,13 @@ def draw_leaderboard(
 
     # move turtle to a new line
     turtle_object.penup()
-    turtle_object.goto(-200, int(turtle_object.ycor()) - 50)
+    turtle_object.goto(-200, int(turtle_object.ycor()) - 100)
     turtle_object.pendown()
 
     # Display a gold/silver/bronze message if player earned a gold/silver/bronze medal; display nothing if no medal
     if MUD_SCORE <= player_score < BRONZE_SCORE:
         turtle_object.write(
-            "You earned a dried piece of mud! It doesn't even resemble a medal... It's just a circle of mud. Oh, and you got a ruble, don't spend it all in one place.",
+            "You earned a dried piece of mud!\nIt doesn't even resemble a medal... It's just a circle of mud.\nOh, and you got a ruble, don't spend it all in one place.",
             font=font_setup,
         )
     elif BRONZE_SCORE <= player_score < SILVER_SCORE:
