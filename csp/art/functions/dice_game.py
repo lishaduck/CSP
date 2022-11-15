@@ -15,21 +15,9 @@ from typing import Any
 
 # import httplib2
 import art  # import the art package
+from utilities import typing_print
 
 # Function Definitions
-
-
-def typing_print(text: str, runtime: float = 0.05, end: str | None = "\n") -> None:
-    """Credit does not go to Nolan, as he stole it off the internet...
-
-    But it works!
-    Oh, and I modified it to add typing and a few other oddities.
-    """
-    for character in text:
-        sys.stdout.write(character)
-        sys.stdout.flush()
-        time.sleep(runtime)
-    print("", end=end)
 
 
 def roll_dice(n: int) -> list[int]:
