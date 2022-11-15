@@ -15,9 +15,8 @@ This repo is roughly organized by unit:
         -   [`csp/art/turtles/project.py`][turtle project] is the lesson project.
     -   [`functions`][funcs] is lesson 1.2: Abstraction.
         -   [`catch-a-turtle`][catch-a-turtle] is a game with a persistant-state leaderboard.
-        
 
--   ### [`web`](/csp/web/) is unit 2
+-   ### [`web`](/csp/) is unit 2
 
     -   `web/project.py` is the unit project.
 
@@ -39,15 +38,16 @@ This repo is roughly organized by unit:
 To run tests, run `pytest`.
 
 ## Use as a template
+
 This repository has been marked as a template. For more information, and instructions for setup, see the [wiki][wiki].
 Oh, and please don't cheat. Mrs. Carson is (probably) fine if you use it to check your answers, but don't just copy this. She'll know.
 
 [115codefiles]: /csp/art/turtles/115codefilesCSP/
 [ap]: https://apstudents.collegeboard.org/
-[art]: #art-is-unit-1
+[art]: #art-is-unit-1-creative-computing-for-all
 [black]: https://github.com/psf/black
 [bottom line]: /csp/bottom_line.py
-[catch-a-turtle]: /csp/art/functions/catch-a-turtle/
+[catch-a-turtle]: /csp/art/functions/catch_a_turtle
 [csp]: https://apstudents.collegeboard.org/courses/ap-computer-science-principles
 [complaint]: /csp/compaint.py
 [funcs]: /csp/art/functions/
