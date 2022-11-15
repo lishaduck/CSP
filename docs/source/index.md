@@ -26,4 +26,8 @@ catch-a-turtle
 
 ```
 
+```{include} ../../README.md
+
+```
+
 {sub-ref}`today` | {sub-ref}`wordcount-words` words | {sub-ref}`wordcount-minutes` min read
