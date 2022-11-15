@@ -5,6 +5,8 @@ import csv
 import turtle as trtl
 from pathlib import Path
 
+import art
+
 # set the levels of scoring
 MUD_SCORE = 5
 BRONZE_SCORE = 20
@@ -98,15 +100,23 @@ def draw_leaderboard(
     player_score: int,
 ) -> None:
     """Draw leaderboard and display a message to player."""
-    # clear the screen and move turtle object to (-200, 100) to start drawing the leaderboard
-    font_setup = ("Arial", 20, "normal")
+    # clear the screen and move turtle object to (-200, 100)
+    # to start drawing the leaderboard
+    font_setup = ("Comic Sans", 20, "normal")
     turtle_object.clear()
     turtle_object.penup()
     turtle_object.goto(-200, 200)
     turtle_object.hideturtle()
     turtle_object.down()
 
-    # loop through the lists and use the same index to display the corresponding name and score, separated by a tab space '\t'
+    # draw the leaderboard title
+    turtle_object.write(
+        art.text2art("Time's up!", font="random-medium"),
+        font=("Courier New", 20, "normal"),
+    )
+
+    # loop through the lists and use the same index to display the corresponding name
+    # and score, separated by a tab space '\t'
     for index, name in enumerate(leader_names):
         turtle_object.write(
             str(index + 1) + "\t" + str(name) + "\t" + str(leader_scores[index]),
