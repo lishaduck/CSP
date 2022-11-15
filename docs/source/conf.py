@@ -16,6 +16,7 @@ release = "0.0.0"
 
 extensions = [
     "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
     "sphinx.ext.doctest",
     "sphinx.ext.duration",
     "sphinx.ext.autosummary",
@@ -29,7 +30,7 @@ extensions = [
 ]
 
 templates_path = ["_templates"]
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
+exclude_patterns = ["Thumbs.db", ".DS_Store"]
 
 source_suffix = {
     ".rst": "restructuredtext",

@@ -10,8 +10,10 @@
 ```{toctree}
 ---
 maxdepth: 2
-caption: Everything you might need to find.
+caption: Everything (hopefully) you might need to find.
 ---
+setup
+catch-a-turtle
 ```
 
 ## Indices and tables
