@@ -67,7 +67,7 @@ def update_leaderboard(
     player_score: int,
 ) -> None:
     """Update leaderboard by inserting the current player and score to the list at the correct position."""
-    index = 1
+    index = 0
     # loop through all the scores in the existing leaderboard list
     for i in range(5):
         # check if this is the position to insert new score at
@@ -76,6 +76,7 @@ def update_leaderboard(
             leader_names.insert(index, player_name)
             leader_scores.pop()
             leader_scores.insert(index, player_score)
+            break
         else:
             index = index + 1
 
