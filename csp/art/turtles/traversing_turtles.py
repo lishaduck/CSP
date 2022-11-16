@@ -4,25 +4,14 @@
 
 import turtle as trtl
 
+from csp.utilities import TURTLE_SHAPES
+
 # create an empty list of turtles
 my_turtles = []
 
 
 # use interesting shapes and colors
-turtle_shapes = [
-    "arrow",
-    "turtle",
-    "circle",
-    "square",
-    "triangle",
-    "classic",
-    "arrow",
-    "turtle",
-    "circle",
-    "square",
-    "triangle",
-    "classic",
-]
+
 turtle_colors = [
     "red",
     "blue",
@@ -40,7 +29,7 @@ turtle_colors = [
 
 
 s: str
-for s in turtle_shapes:
+for s in TURTLE_SHAPES:
     t = trtl.Turtle(shape=s)
     t.pencolor(turtle_colors[-1])
     t.fillcolor(turtle_colors[-1])

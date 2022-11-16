@@ -554,3 +554,19 @@ class BColors:
     ENDC = "\033[0m"
     BOLD = "\033[1m"
     UNDERLINE = "\033[4m"
+
+
+TURTLE_SHAPES = [
+    "arrow",
+    "turtle",
+    "circle",
+    "square",
+    "triangle",
+    "classic",
+    "arrow",
+    "turtle",
+    "circle",
+    "square",
+    "triangle",
+    "classic",
+]
