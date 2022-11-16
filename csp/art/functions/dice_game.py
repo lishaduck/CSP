@@ -9,13 +9,15 @@ Elisha Dukes - Mrs. Carson
 import random
 
 # import re
-import sys
 import time
 from typing import Any
 
-# import httplib2
 import art  # import the art package
-from utilities import typing_print
+
+from csp.utilities import typing_print
+
+# import httplib2
+
 
 # Function Definitions
 
