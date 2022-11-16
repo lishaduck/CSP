@@ -7,6 +7,8 @@ from pathlib import Path
 
 import art
 
+from csp.utilities import artistic_text
+
 # set the levels of scoring
 MUD_SCORE = 5
 BRONZE_SCORE = 20
@@ -77,8 +79,7 @@ def update_leaderboard(
             leader_scores.pop()
             leader_scores.insert(index, player_score)
             break
-        else:
-            index = index + 1
+        index = index + 1
 
     # store the latest leaderboard back in the file
     with file_name.open(
@@ -112,12 +113,10 @@ def draw_leaderboard(
 
     # draw the leaderboard title
     if player_score > leader_scores[0]:
-        turtle_object.write(art.text2art("NEW HIGH SCORE!!!"))
+        message = "NEW HIGH SCORE!"
     else:
-        turtle_object.write(
-            art.text2art("Time's up!", font="random-medium"),
-            font=("Courier New", 20, "normal"),
-        )
+        message = "Time's up!"
+    turtle_object.write(artistic_text(message), font=("Courier New", 20, "normal"))
 
     # loop through the lists and use the same index to display the corresponding name
     # and score, separated by a tab space '\t'
