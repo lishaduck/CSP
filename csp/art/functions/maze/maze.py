@@ -9,56 +9,54 @@ from csp.utilities import artistic_text
 num_walls = 26
 wall_color = "black"
 wall_width = 5
-path_width = 10
+path_width = 20
+turtle_speed = 0
 
 
-maze_painter = trtl.Turtle()
-maze_painter.pencolor(wall_color)
-maze_painter.pensize(wall_width)
-
-wn = trtl.Screen()
-wn.bgcolor("white")
-
-Maze_Input = list[list[int]]
+def draw_wall():
+    maze_painter.left(90)
+    maze_painter.forward(path_width)
+    maze_painter.right(180)
+    maze_painter.forward(path_width)
+    maze_painter.left(90)
 
 
-def get_maze() -> Maze_Input:
-    """Randomly generate a maze.
-
-    :return: the maze as a list of lists of lines
-    """
-    return Maze_Input()
-
-
-def get_start_end(maze) -> tuple[tuple[int, int], tuple[int, int]]:
-    """Get the start and end positions.
-
-    :param maze: the maze as a list of lists of lines
-    :return: the start and end positions as tuples
-    """
-    return ((0, 0), (0, 0))
-
-
-def draw_maze(maze: Maze_Input, start, end) -> None:
+def draw_maze() -> None:
     """Draw the maze.
 
     Lines are drawn in the turtle window.
 
-    :param maze: the maze as a list of lists of lines
+    param maze: the maze as a list of lists of lines
     """
     for i in range(num_walls):
-        maze_painter.forward(i * 10)
+        maze_painter.forward(i + path_width)
+        maze_painter.penup()
+        maze_painter.forward(path_width)
+        maze_painter.pendown()
+        maze_painter.forward(40)
+        if i > 4:
+            draw_wall()
+        maze_painter.forward(9 * i + path_width)
+
         maze_painter.left(90)
 
 
 # main entrypoint
 if __name__ == "__main__":
-    artistic_text("MAZE", speed=0.05)
+    artistic_text("MAZE", speed=0.02, font="tarty-9")
+
+    maze_painter = trtl.Turtle()
+    maze_painter.speed(turtle_speed)
+    maze_painter.pencolor(wall_color)
+    maze_painter.pensize(wall_width)
+
+    wn = trtl.Screen()
+    wn.bgcolor("white")
 
     # get the maze
-    maze = get_maze()
+    # maze = get_maze()
     # get the start and end points
-    start, end = get_start_end(maze)
+    # start, end = get_start_end(maze)
     # print the path
-    draw_maze(maze, start, end)
+    draw_maze()
     wn.mainloop()
