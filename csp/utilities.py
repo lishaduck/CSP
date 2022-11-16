@@ -1,6 +1,8 @@
-"""Common utilities including
+"""Common utilities.
 
+Including, but not limited to:
 -   typewriter-style printing,
+-   artistic text printing,
 -   the full-ish list of colors, and
 -   a non-comprehensive list of escape codes.
 """
@@ -9,6 +11,8 @@
 import dataclasses
 import sys
 import time
+
+import art
 
 
 def typing_print(text: str, runtime: float = 0.05, end: str | None = "\n") -> None:
@@ -29,8 +33,28 @@ typing_print(
     "Fourscore and seven years ago our fathers brought forth, on this continent, a new nation, conceived in liberty, and dedicated to the proposition that all men are created equal. Now we are engaged in a great civil war, testing whether that nation, or any nation so conceived, and so dedicated, can long endure. We are met on a great battle-field of that war. We have come to dedicate a portion of that field, as a final resting-place for those who here gave their lives, that that nation might live. It is altogether fitting and proper that we should do this. But, in a larger sense, we cannot dedicate, we cannot consecrate—we cannot hallow—this ground. The brave men, living and dead, who struggled here, have consecrated it far above our poor power to add or detract. The world will little note, nor long remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced. It is rather for us to be here dedicated to the great task remaining before us—that from these honored dead we take increased devotion to that cause for which they here gave the last full measure of devotion—that we here highly resolve that these dead shall not have died in vain—that this nation, under God, shall have a new birth of freedom, and that government of the people, by the people, for the people, shall not perish from the earth."  # pylint: disable=C0301
 )
 
+
+def artistic_text(
+    text: str,
+    font: str = "random-medium",
+    should_print: bool = True,
+    typewriter: bool = True,
+    speed: float = 0.025,
+) -> str | None:
+    """Draw text using the art package."""
+    art_text = art.text2art(text, font=font)
+    if should_print:
+        if typewriter:
+            typing_print(art_text, runtime=speed)
+            return None
+
+        print(art_text)
+        return None
+    return art.text2art(text, font=font)
+
+
 # Credit where credit is due: https://www.wikipython.com/tkinter-ttk-tix/summary-information/colors/
-COLORS = [
+COLORS: list[str] = [
     "snow",
     "ghost white",
     "white smoke",
