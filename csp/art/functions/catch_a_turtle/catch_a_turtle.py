@@ -28,7 +28,7 @@ def game():
     wn.bgcolor("black")
     spot = trtl.Turtle()
     spot.speed(0)
-    score = 10
+    score = 0
 
     # -----countdown variables-----
     FONT_SETUP = ("Arial", 20, "normal")
