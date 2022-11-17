@@ -60,21 +60,21 @@ def draw_maze() -> None:
 
 def go_up():
     maze_runner.setheading(90)
-    maze_runner.forward(5)
 
 
 def go_down():
     maze_runner.setheading(270)
-    maze_runner.forward(5)
 
 
 def go_left():
     maze_runner.setheading(180)
-    maze_runner.forward(5)
 
 
 def go_right():
     maze_runner.setheading(0)
+
+
+def move_runner():
     maze_runner.forward(5)
 
 
@@ -98,6 +98,7 @@ if __name__ == "__main__":
     wn.onkeypress(go_down, "Down")
     wn.onkeypress(go_left, "Left")
     wn.onkeypress(go_right, "Right")
+    wn.onkeypress(move_runner, "g")
     wn.listen()
 
     draw_maze()
