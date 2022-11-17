@@ -16,22 +16,21 @@ turtle_speed = 0
 
 # -----game functions-----
 def draw_wall(iteration):
-    maze_painter.forward((path_width + (iteration * 10)) / 10)
-    if rand.randint(1, 10) > 7:
-        draw_barrier()
+    maze_painter.forward(((path_width / 10) + (iteration * 10)) / 4)
 
 
-def draw_barrier():
+def draw_barrier(iteration):
     maze_painter.left(90)
     maze_painter.forward(path_width)
     maze_painter.right(180)
     maze_painter.forward(path_width)
     maze_painter.left(90)
+    draw_wall(iteration)
 
 
-def draw_door():
+def draw_door(iteration):
     maze_painter.penup()
-    maze_painter.forward(path_width)
+    draw_wall(iteration)
     maze_painter.pendown()
 
 
@@ -44,41 +43,39 @@ def draw_maze() -> None:
     """
     for i in range(num_walls):
         door_spacer = 0
-        maze_painter.forward(path_width / 4)
         for j in range(5):
-            options: int = rand.randint(1, 10)
-            maze_painter.forward((i + path_width) / 10)
-            if options > 3 and door_spacer == 0:
-                draw_door()
+            draw_wall(i)
+            if rand.randint(1, 10) > 3:
+                draw_door(i)
                 door_spacer += 1
             else:
                 draw_wall(i)
-            maze_painter.forward(40)
-            if i > 4:
-                draw_barrier()
-            maze_painter.forward((i + path_width) / 10)
-        maze_painter.forward((path_width / 4) + i)
+            if i > 4 and rand.randint(1, 10) > 7 and j < 5:
+                draw_barrier(i)
+            draw_wall(i)
+        if door_spacer == 0:
+            draw_door(i)
         maze_painter.left(90)
 
 
 def go_up():
     maze_runner.setheading(90)
-    maze_runner.forward(20)
+    maze_runner.forward(5)
 
 
 def go_down():
     maze_runner.setheading(270)
-    maze_runner.forward(20)
+    maze_runner.forward(5)
 
 
 def go_left():
     maze_runner.setheading(180)
-    maze_runner.forward(20)
+    maze_runner.forward(5)
 
 
 def go_right():
     maze_runner.setheading(0)
-    maze_runner.forward(20)
+    maze_runner.forward(5)
 
 
 # main entrypoint
