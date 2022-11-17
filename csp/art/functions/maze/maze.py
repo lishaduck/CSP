@@ -1,4 +1,7 @@
-""""""
+"""Maze - Play a maze game.
+
+Have fun!
+"""
 
 
 import random as rand
@@ -16,10 +19,12 @@ turtle_speed = 0
 
 # -----game functions-----
 def draw_wall(iteration):
+    """Draw a blank wall segment."""
     maze_painter.forward(((path_width / 10) + (iteration * 10)) / 4)
 
 
 def draw_barrier(iteration):
+    """Draw a barrier, then draw a wall segment."""
     maze_painter.left(90)
     maze_painter.forward(path_width)
     maze_painter.right(180)
@@ -29,6 +34,7 @@ def draw_barrier(iteration):
 
 
 def draw_door(iteration):
+    """Draw a door, then draw a wall segment."""
     maze_painter.penup()
     draw_wall(iteration)
     maze_painter.pendown()
@@ -50,7 +56,7 @@ def draw_maze() -> None:
                 door_spacer += 1
             else:
                 draw_wall(i)
-            if i > 4 and rand.randint(1, 10) > 7 and j < 5:
+            if (i >= 1) and (rand.randint(1, 10) > 7):
                 draw_barrier(i)
             draw_wall(i)
         if door_spacer == 0:
@@ -59,22 +65,27 @@ def draw_maze() -> None:
 
 
 def go_up():
+    """Orient the runner up."""
     maze_runner.setheading(90)
 
 
 def go_down():
+    """Orient the runner down."""
     maze_runner.setheading(270)
 
 
 def go_left():
+    """Orient the runner left."""
     maze_runner.setheading(180)
 
 
 def go_right():
+    """Orient the runner right."""
     maze_runner.setheading(0)
 
 
 def move_runner():
+    """Move the runner forward in the selected direction."""
     maze_runner.forward(5)
 
 
