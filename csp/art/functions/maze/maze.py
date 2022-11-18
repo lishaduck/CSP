@@ -10,34 +10,51 @@ import turtle as trtl
 from csp.utilities import COLORS, TURTLE_SHAPES, artistic_text
 
 # -----game configuration----
-num_walls = 26
-wall_color = "black"
+num_walls = 25
+wall_color = rand.choice(COLORS)
 wall_width = 5
-path_width = 20
+path_width = 15
 turtle_speed = 0
 
 
+# def wall_length(iteration):
+#     length = (iteration * 10) * (path_width / 100)
+#     return length
+
+
 # -----game functions-----
-def draw_wall(iteration):
-    """Draw a blank wall segment."""
-    maze_painter.forward(((path_width / 10) + (iteration * 10)) / 4)
+
+# def draw_wall(iteration):
+#     """Draw a blank wall segment."""
+#     maze_painter.forward(wall_length(iteration))
 
 
 def draw_barrier(iteration):
     """Draw a barrier, then draw a wall segment."""
+    maze_painter.forward(iteration)
     maze_painter.left(90)
-    maze_painter.forward(path_width)
-    maze_painter.right(180)
-    maze_painter.forward(path_width)
-    maze_painter.left(90)
-    draw_wall(iteration)
+    maze_painter.forward(path_width * 2)
+    maze_painter.backward(path_width * 2)
+    maze_painter.right(90)
+    # maze_painter.left(90)
+    # maze_painter.forward(path_width)
+    # maze_painter.right(180)
+    # maze_painter.forward(path_width)
+    # maze_painter.left(90)
+    # draw_wall(iteration)
 
 
 def draw_door(iteration):
     """Draw a door, then draw a wall segment."""
+    maze_painter.forward(iteration)
     maze_painter.penup()
-    draw_wall(iteration)
+    maze_painter.forward(path_width * 2)
     maze_painter.pendown()
+    # maze_painter.forward((wall_length(iteration) / 2) - (path_width / 2))
+    # maze_painter.penup()
+    # maze_painter.forward(path_width)
+    # maze_painter.pendown()
+    # maze_painter.forward((wall_length(iteration) / 2) - (path_width / 2))
 
 
 def draw_maze() -> None:
@@ -47,21 +64,44 @@ def draw_maze() -> None:
 
     param maze: the maze as a list of lists of lines
     """
+    wall_len = path_width
     for i in range(num_walls):
-        door_spacer = 0
-        for j in range(5):
-            draw_wall(i)
-            if rand.randint(1, 10) > 3:
-                draw_door(i)
-                door_spacer += 1
+        if i > 4:
+            wall_len += path_width
+            # door_spacer = 0
+            door = rand.randint(path_width * 2, (wall_len - path_width * 2))
+            barrier = rand.randint(path_width * 2, (wall_len - path_width * 2))
+            # if a door and barrier would be rendered on top of each other, get a new value
+            while abs(door - barrier) < path_width:
+                door = rand.randint(path_width * 2, (wall_len - path_width * 2))
+
+            if door < barrier:
+                draw_door(door)
+                draw_barrier(barrier - door - path_width * 2)
+                # draw the rest of the wall
+                maze_painter.forward(wall_len - barrier)
             else:
-                draw_wall(i)
-            if (i >= 1) and (rand.randint(1, 10) > 7):
-                draw_barrier(i)
-            draw_wall(i)
-        if door_spacer == 0:
-            draw_door(i)
-        maze_painter.left(90)
+                draw_barrier(barrier)
+                draw_door(door - barrier)
+                # draw the rest of the wall
+                maze_painter.forward(wall_len - door - path_width * 2)
+
+        # draw_wall(i)
+        # if rand.randint(1, 10) > 7:
+        #     draw_door(i)
+        #     door_spacer += 1
+        # else:
+        #     draw_wall(i)
+        # if (i >= 1) and (rand.randint(1, 10) > 7):
+        #     draw_barrier(i)
+        # draw_wall(i)
+        # for j in range(5):
+        #     pass
+        # if door_spacer == 0:
+        #     draw_door(i)
+        # else:
+        #     draw_wall(i)
+        # maze_painter.left(90)
 
 
 def go_up():
