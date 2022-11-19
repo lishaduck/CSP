@@ -92,6 +92,3 @@ wn.listen()
 
 wn.mainloop()
 
-wn = trtl.Screen()
-
-wn.mainloop()

@@ -66,9 +66,11 @@ def draw_maze() -> None:
     """
     wall_len = path_width
     for i in range(num_walls):
+        wall_len += path_width
         if i > 4:
-            wall_len += path_width
-            # door_spacer = 0
+            maze_painter.left(90)
+
+            # randomize location of doors and barriers in wall
             door = rand.randint(path_width * 2, (wall_len - path_width * 2))
             barrier = rand.randint(path_width * 2, (wall_len - path_width * 2))
             # if a door and barrier would be rendered on top of each other, get a new value
@@ -86,6 +88,7 @@ def draw_maze() -> None:
                 # draw the rest of the wall
                 maze_painter.forward(wall_len - door - path_width * 2)
 
+        # door_spacer = 0
         # draw_wall(i)
         # if rand.randint(1, 10) > 7:
         #     draw_door(i)
