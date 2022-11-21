@@ -7,7 +7,7 @@ Have fun!
 import random as rand
 import turtle as trtl
 
-from csp.utilities import COLORS, TURTLE_SHAPES, artistic_text
+from csp.utilities import COLORS, TURTLE_SHAPES, artistic_text  # pylint: disable=E0401
 
 # -----game configuration----
 num_walls = 50
@@ -15,6 +15,7 @@ wall_color = rand.choice(COLORS)
 wall_width = 5
 path_width = 15
 turtle_speed = 0
+exit_loc = 365
 
 
 # -----game functions-----
@@ -83,6 +84,7 @@ def draw_maze() -> None:
 def go_up():
     """Orient the runner up."""
     maze_runner.setheading(90)
+    print(maze_runner.xcor(), maze_runner.ycor())
 
 
 def go_down():
@@ -115,6 +117,7 @@ if __name__ == "__main__":
     maze_painter.pensize(wall_width)
 
     maze_runner = trtl.Turtle()
+    maze_painter.hideturtle()
     maze_runner.shape(rand.choice(TURTLE_SHAPES))
     maze_runner.color(rand.choice(COLORS))
 
@@ -129,5 +132,14 @@ if __name__ == "__main__":
     wn.listen()
 
     draw_maze()
-
     wn.mainloop()
+
+    if (
+        maze_runner.xcor() > exit_loc
+        or maze_runner.ycor() > exit_loc
+        or maze_runner.xcor() < -exit_loc
+        or maze_runner.ycor() < -exit_loc
+    ):
+        artistic_text("YOU WIN!", speed=0.001, font="tarty-9")
+    else:
+        artistic_text("YOU LOSE!", speed=0.001, font="tarty-9")
