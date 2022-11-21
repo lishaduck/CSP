@@ -10,16 +10,11 @@ import turtle as trtl
 from csp.utilities import COLORS, TURTLE_SHAPES, artistic_text
 
 # -----game configuration----
-num_walls = 25
+num_walls = 50
 wall_color = rand.choice(COLORS)
 wall_width = 5
 path_width = 15
 turtle_speed = 0
-
-
-# def wall_length(iteration):
-#     length = (iteration * 10) * (path_width / 100)
-#     return length
 
 
 # -----game functions-----
@@ -64,6 +59,7 @@ def draw_maze() -> None:
 
     param maze: the maze as a list of lists of lines
     """
+    wall_count = 0
     wall_len = path_width
     for i in range(num_walls):
         wall_len += path_width
@@ -80,6 +76,8 @@ def draw_maze() -> None:
         else:
             maze_painter.forward(wall_len)
             maze_painter.left(90)
+        wall_count += 1
+        print(wall_count, end="\r")
 
 
 def go_up():
