@@ -2,8 +2,9 @@
 """
 
 
-import dataclasses
 import random
+
+from csp.utilities import BColors
 
 # Create a list of words for the computer to choose from
 word_list_1 = [
@@ -113,25 +114,6 @@ word_list_2 = [
     "roc",
 ]
 words = word_list_1 + word_list_2
-
-
-# credit where credit is due: https://stackoverflow.com/a/287944
-@dataclasses.dataclass
-class BColors:
-    """Non-comprehensive list of escape codes.
-
-    From:https://svn.blender.org/svnroot/bf-blender/trunk/blender/build_files/scons/tools/bcolors.py
-    """
-
-    HEADER = "\033[95m"
-    OKBLUE = "\033[94m"
-    OKCYAN = "\033[96m"
-    OKGREEN = "\033[92m"
-    WARNING = "\033[93m"
-    FAIL = "\033[91m"
-    ENDC = "\033[0m"
-    BOLD = "\033[1m"
-    UNDERLINE = "\033[4m"
 
 
 # this function will take a word passed in as a parameter and return the same word scrambled

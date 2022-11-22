@@ -27,7 +27,7 @@ def game():
     wn = trtl.Screen()
     wn.bgcolor("black")
     spot = trtl.Turtle()
-    spot.speed(10)
+    spot.speed(0)
     score = 0
 
     # -----countdown variables-----

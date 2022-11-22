@@ -9,13 +9,15 @@ Elisha Dukes - Mrs. Carson
 import random
 
 # import re
-import sys
 import time
 from typing import Any
 
-# import httplib2
 import art  # import the art package
-from utilities import typing_print
+
+from csp.utilities import typing_print
+
+# import httplib2
+
 
 # Function Definitions
 
@@ -41,7 +43,7 @@ def roll_again(choices: str, dice_list: list[int]) -> list[int]:
 
 
 def computer_strategy(dice_list: list[Any]) -> str:
-    """Computer strategy - picks re-roll for computer.
+    """Compute computer strategy - picks re-roll for computer.
 
     Stratgy #2
     """
