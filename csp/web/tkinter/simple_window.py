@@ -3,13 +3,13 @@
 
 import tkinter as tk
 
-password = ""
+password = "wow"
 
 
 def test_my_button():
     global password
-    frame_auth.tkraise()
     password = ent_username.get()
+    frame_auth.tkraise()
 
 
 # main window
