@@ -5,7 +5,7 @@ import tkinter.messagebox as mb
 # MultiFactorAuth is a class with three frames:
 #    an authorization (username/password) frame
 #    an authentication (information factor) frame
-#    the restircted application frame
+#    the restricted application frame
 # Users must pass all authorization and authentication steps to access the restricted app
 
 
@@ -23,7 +23,7 @@ class MultiFactorAuth(tk.Tk):
         self.password = pw
 
     # save security question/answer that the user wants to use
-    def set_authentication(self, user_question="unknwon", user_answer="unknown"):
+    def set_authentication(self, user_question="unknown", user_answer="unknown"):
         self.security_question = user_question
         self.answer = user_answer
 
@@ -80,7 +80,7 @@ class MultiFactorAuth(tk.Tk):
             )
             self.btn_auth.pack(pady=15)
 
-            # show this authtication frame
+            # show this authentication frame
             self.frame_auth.tkraise()
 
         else:
@@ -89,8 +89,7 @@ class MultiFactorAuth(tk.Tk):
     # get the authorization information and if authorized,
     # create and show the restricted app
     def authenticate(self):
-        factor_info = self.ent_auth.get()
-        if factor_info == self.answer:
+        if (factor_info := self.ent_auth.get()) == self.answer:
             # authenticated - create the restricted app
             self.frame_restrict = tk.Frame(self, bg="sienna2")
             self.title("Welcome to the Restricted Application")
@@ -106,7 +105,7 @@ class MultiFactorAuth(tk.Tk):
 
             lbl_auth = tk.Label(
                 self.frame_restrict,
-                text="Contratulations!\nYou have authenticated!",
+                text="Congratulations!\nYou have authenticated!",
                 bg="sienna2",
             )
             lbl_auth.pack(pady=30)
