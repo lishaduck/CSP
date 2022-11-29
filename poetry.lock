@@ -75,7 +75,10 @@ python-versions = ">=3.7.2"
 
 [package.dependencies]
 lazy-object-proxy = ">=1.4.0"
-wrapt = {version = ">=1.14,<2", markers = "python_version >= \"3.11\""}
+wrapt = [
+    {version = ">=1.11,<2", markers = "python_version < \"3.11\""},
+    {version = ">=1.14,<2", markers = "python_version >= \"3.11\""},
+]
 
 [[package]]
 name = "async-timeout"
@@ -158,6 +161,7 @@ click = ">=8.0.0"
 mypy-extensions = ">=0.4.3"
 pathspec = ">=0.9.0"
 platformdirs = ">=2"
+tomli = {version = ">=1.1.0", markers = "python_full_version < \"3.11.0a7\""}
 
 [package.extras]
 colorama = ["colorama (>=0.4.3)"]
@@ -495,6 +499,17 @@ fastimport = ["fastimport"]
 https = ["urllib3 (>=1.24.1)"]
 paramiko = ["paramiko"]
 pgp = ["gpg"]
+
+[[package]]
+name = "exceptiongroup"
+version = "1.0.4"
+description = "Backport of PEP 654 (exception groups)"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+test = ["pytest (>=6)"]
 
 [[package]]
 name = "execnet"
@@ -1346,6 +1361,9 @@ category = "dev"
 optional = false
 python-versions = ">=3.8"
 
+[package.dependencies]
+tomli = {version = ">=1.1.0", markers = "python_version < \"3.11\""}
+
 [[package]]
 name = "pydocstyle"
 version = "6.1.1"
@@ -1360,6 +1378,14 @@ toml = {version = "*", optional = true, markers = "extra == \"toml\""}
 
 [package.extras]
 toml = ["toml"]
+
+[[package]]
+name = "pygame"
+version = "2.1.2"
+description = "Python Game Development"
+category = "main"
+optional = false
+python-versions = ">=3.6"
 
 [[package]]
 name = "pygments"
@@ -1409,6 +1435,7 @@ dill = ">=0.2"
 isort = ">=4.2.5,<6"
 mccabe = ">=0.6,<0.8"
 platformdirs = ">=2.2.0"
+tomli = {version = ">=1.1.0", markers = "python_version < \"3.11\""}
 tomlkit = ">=0.10.1"
 
 [package.extras]
@@ -1480,9 +1507,11 @@ python-versions = ">=3.7"
 [package.dependencies]
 attrs = ">=19.2.0"
 colorama = {version = "*", markers = "sys_platform == \"win32\""}
+exceptiongroup = {version = ">=1.0.0rc8", markers = "python_version < \"3.11\""}
 iniconfig = "*"
 packaging = "*"
 pluggy = ">=0.12,<2.0"
+tomli = {version = ">=1.0.0", markers = "python_version < \"3.11\""}
 
 [package.extras]
 testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "pygments (>=2.7.2)", "requests", "xmlschema"]
@@ -1715,9 +1744,20 @@ category = "main"
 optional = false
 python-versions = ">=3"
 
+[package.dependencies]
+"ruamel.yaml.clib" = {version = ">=0.2.6", markers = "platform_python_implementation == \"CPython\" and python_version < \"3.11\""}
+
 [package.extras]
 docs = ["ryd"]
 jinja2 = ["ruamel.yaml.jinja2 (>=0.2)"]
+
+[[package]]
+name = "ruamel-yaml-clib"
+version = "0.2.7"
+description = "C version of reader, parser and emitter for ruamel.yaml derived from libyaml"
+category = "main"
+optional = false
+python-versions = ">=3.5"
 
 [[package]]
 name = "scipy"
@@ -2139,8 +2179,8 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "~3.11"
-content-hash = "e1eb47b8d439e3f2d533fcbe567857a14aeadfd8cd1c3cd513ec79b3677839b3"
+        python-versions = "^3.10"
+content-hash = "caa27404afff6130474ba52192b62b06267cf7fdb107cb9bbe7a1d52b11dd767"
 
 [metadata.files]
 aiohttp = [
@@ -2608,6 +2648,10 @@ dulwich = [
     {file = "dulwich-0.20.50-pp39-pypy39_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:dd9fa00971ecf059bb358085a942ecac5be4ff71acdf299f44c8cbc45c18659f"},
     {file = "dulwich-0.20.50-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:af4adac92fb95671ea3a24f2f8e5e5e8f638711ce9c33a3ca6cd68bf1ff7d99f"},
     {file = "dulwich-0.20.50.tar.gz", hash = "sha256:50a941796b2c675be39be728d540c16b5b7ce77eb9e1b3f855650ece6832d2be"},
+]
+exceptiongroup = [
+    {file = "exceptiongroup-1.0.4-py3-none-any.whl", hash = "sha256:542adf9dea4055530d6e1279602fa5cb11dab2395fa650b8674eaec35fc4a828"},
+    {file = "exceptiongroup-1.0.4.tar.gz", hash = "sha256:bd14967b79cd9bdb54d97323216f8fdf533e278df937aa2a90089e7d6e06e5ec"},
 ]
 execnet = [
     {file = "execnet-1.9.0-py2.py3-none-any.whl", hash = "sha256:a295f7cc774947aac58dde7fdc85f4aa00c42adf5d8f5468fc630c1acf30a142"},
@@ -3399,6 +3443,66 @@ pydocstyle = [
     {file = "pydocstyle-6.1.1-py3-none-any.whl", hash = "sha256:6987826d6775056839940041beef5c08cc7e3d71d63149b48e36727f70144dc4"},
     {file = "pydocstyle-6.1.1.tar.gz", hash = "sha256:1d41b7c459ba0ee6c345f2eb9ae827cab14a7533a88c5c6f7e94923f72df92dc"},
 ]
+pygame = [
+    {file = "pygame-2.1.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:f149e182d0eeef15d8a9b4c9dad1b87dc6eba3a99bd3c44a777a3a2b053a3dca"},
+    {file = "pygame-2.1.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:dc4444d61d48c5546df5137cdf81554887ddb6e2ef1be7f51eb77ea3b6bdd56f"},
+    {file = "pygame-2.1.2-cp310-cp310-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:a0ccf8e3dce7ca67d523a6020b7e3dbf4b26797a9a8db5cc4c7b5ef20fb64701"},
+    {file = "pygame-2.1.2-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:7889dce887ec83c9a0bef8d9eb3669d8863fdaf37c45bacec707d8ad90b24a38"},
+    {file = "pygame-2.1.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:db2f40d5a75fd9cdda473c58b0d8b294da6e0179f00bb3b1fc2f7f29cac09bea"},
+    {file = "pygame-2.1.2-cp310-cp310-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:e4b4cd440d50a9f8551b8989e856aab175593af07eb825cad22fd2f8f6f2ffce"},
+    {file = "pygame-2.1.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:754c2906f2ef47173a14493e1de116b2a56a2c8e1764f1202ba844d080248a5b"},
+    {file = "pygame-2.1.2-cp310-cp310-win32.whl", hash = "sha256:c99b95e62cdda29c2e60235d7763447c168a6a877403e6f9ca5b2e2bb297c2ce"},
+    {file = "pygame-2.1.2-cp310-cp310-win_amd64.whl", hash = "sha256:9649419254d3282dae41f23837de4108b17bc62187c3acd8af2ae3801b765cbd"},
+    {file = "pygame-2.1.2-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:dcc285ee1f1d0e2672cc52f880fd3f564b1505de710e817f692fbf64a72ca657"},
+    {file = "pygame-2.1.2-cp36-cp36m-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:e1bb25986db77a48f632469c6bc61baf7508ce945aa6161c02180d4ee5ac5b8d"},
+    {file = "pygame-2.1.2-cp36-cp36m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:e7a8e18677e0064b7a422f6653a622652d932826a27e50f279d55a8b122a1a83"},
+    {file = "pygame-2.1.2-cp36-cp36m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:dd528dbb91eca16f7522c975d0f9e94b95f6b5024c82c3247dc0383d242d33c6"},
+    {file = "pygame-2.1.2-cp36-cp36m-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:fcc9586e17875c0cdf8764597955f9daa979098fd4f80be07ed68276ac225480"},
+    {file = "pygame-2.1.2-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:c9ce7f3d8af14d7e04eb7eb41c5e5313c43508c252bb2b9eb53e51fc87ada9fd"},
+    {file = "pygame-2.1.2-cp36-cp36m-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:e09044e9e1aa8512d6a9c7ce5f94b881824bcfc401105f3c24f546dfc3bb4aa5"},
+    {file = "pygame-2.1.2-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:40e4d8d65985bb467d9c5a1305fb53fd6820c61d764979600becab973339676f"},
+    {file = "pygame-2.1.2-cp36-cp36m-win32.whl", hash = "sha256:50d9a21edd551669862c27c9272747401b20b1939abaacb842c08ea1cdd1c04d"},
+    {file = "pygame-2.1.2-cp36-cp36m-win_amd64.whl", hash = "sha256:e18c9466131378421d00fc40b637425229238d506a073d9c537b230b355a25d6"},
+    {file = "pygame-2.1.2-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:07ca9f683075aea9bd977af9f09a720ebf747343d3ea8103e4f1735283b02330"},
+    {file = "pygame-2.1.2-cp37-cp37m-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:3c8d6637ff75351e581327efefa9d04eeb0f257b533392b6cc6b15ceca4f7c5e"},
+    {file = "pygame-2.1.2-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:5ebbefb8b576572c8fc97a3321d37dc2b4afea6b6e3877a67f7158d8c2c4cefe"},
+    {file = "pygame-2.1.2-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:9d6452419e01a0f848aed0597f69fd10a4c2a7750c15d1b0607f86090a39dcf3"},
+    {file = "pygame-2.1.2-cp37-cp37m-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:e627300a66a90651fb39e41601d447b1fdbbfffca3f08ef0278d6cc0436b2160"},
+    {file = "pygame-2.1.2-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a56a811d8821f7b9a594e3d0e0dd8bd39b25e3eea8963d5963263b90fd2ea5c2"},
+    {file = "pygame-2.1.2-cp37-cp37m-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:24b4f7f30fa2b3d092b60be6fcc725fb91d569fc87a9bcc91614ee8b0c005726"},
+    {file = "pygame-2.1.2-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:8e87716114e97322fb177e223d889a4be369a0f73212f4f8507fe0cd43253b23"},
+    {file = "pygame-2.1.2-cp37-cp37m-win32.whl", hash = "sha256:20676da24e3e3e6b9fc4eecc7ba09d77ef46c3a83a028763ba1d222476c2e3fb"},
+    {file = "pygame-2.1.2-cp37-cp37m-win_amd64.whl", hash = "sha256:93c4cbfc942dd00410eaa9e84252129f9f9993f37f683006d7b49ab245342254"},
+    {file = "pygame-2.1.2-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:2405414d8c572668e04739875661e030a0c588e197fa95463fe301c3d0a0510b"},
+    {file = "pygame-2.1.2-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:e8632f6b2ddb90f6f3950744bd65d5ef15af615e3034057fa30ff836f48a7179"},
+    {file = "pygame-2.1.2-cp38-cp38-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:ca5ef1315fa67c241a657ab077be44f230c05740c95f0b46409457dceefdc7e5"},
+    {file = "pygame-2.1.2-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:1219a963941bd53aa754e8449364c142004fe706c33a9c22ff2a76521a82d078"},
+    {file = "pygame-2.1.2-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:3bb0674aa789848ddc264bfc60c54965bf3bb659c141de4f600e379acc9b944c"},
+    {file = "pygame-2.1.2-cp38-cp38-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:24254c4244f0d9bdc904f5d3f38e86757ca4c6aa0e44a6d55ef5e016bc7274d6"},
+    {file = "pygame-2.1.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:97a74ba186deee68318a52637012ef6abf5be6282c659e1d1ba6ad08cf35ec85"},
+    {file = "pygame-2.1.2-cp38-cp38-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:0e97d38308c441942577fea7fcd1326308bc56d6be6c024218e94d075d322e0f"},
+    {file = "pygame-2.1.2-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:ea36f4f93524554a35cac2359df63b50af6556ed866830aa1f07f0d8580280ea"},
+    {file = "pygame-2.1.2-cp38-cp38-win32.whl", hash = "sha256:4aa3ae32320cc704d63e185864e44f6265c2a6e52c9384afe152cc3d51b3a2ef"},
+    {file = "pygame-2.1.2-cp38-cp38-win_amd64.whl", hash = "sha256:9d7b021b8dde5d528363e474bc18bd6f79a9666eef89fb4859bcb8f0a536c9de"},
+    {file = "pygame-2.1.2-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:660c80c0b2e80f1f801715583b759fb4c7bc0c11eb3b534e89c9fc4bfbc38acd"},
+    {file = "pygame-2.1.2-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:dad6bf3fdd3752d7519422f3732be779b98fe7c87d32c3efe2fdffdcbeebb6ca"},
+    {file = "pygame-2.1.2-cp39-cp39-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:119dee20c372c85dc47b717119534d15a60c64ceab8b0eb09278866d10486afe"},
+    {file = "pygame-2.1.2-cp39-cp39-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:fc2e5db54491e8f27785fc5204c96f540d3557dcf5b0a9a857b6594d6b32561b"},
+    {file = "pygame-2.1.2-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d2d3c50ee9847b743db6cd7b1bb17a94c2c2abc16679d70f5e745cabdf19e655"},
+    {file = "pygame-2.1.2-cp39-cp39-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:6ecda8dd4583982bb65f9c682f244a5e94524dcf628379766227e9ed97201a49"},
+    {file = "pygame-2.1.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0e06ae8e1c830f1b9c36a2bc6bb11de840232e95b78e2c349c6ed803a303be19"},
+    {file = "pygame-2.1.2-cp39-cp39-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:c5ea87da5fe4b6164c3854f3b0c9146811dbad0dd7fa74297683dfacc485ae1c"},
+    {file = "pygame-2.1.2-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:0427c103f741234336e5606d2fad86f5403c1a3d1dc55c309fbff3c984f0c9ae"},
+    {file = "pygame-2.1.2-cp39-cp39-win32.whl", hash = "sha256:5e88b0d4338b94960686f59396f23f7f684fed4859fcc3b9f40286d72c1c61af"},
+    {file = "pygame-2.1.2-cp39-cp39-win_amd64.whl", hash = "sha256:5d0c14152d0ca8ef5fbcc5ed9981462bdf59a9ae85a291e62d8a8d0b7e5cbe43"},
+    {file = "pygame-2.1.2-pp36-pypy36_pp73-win32.whl", hash = "sha256:636f51f56615d67459b11918206bb4da30cd7d7042027bf997c218ccd6c77902"},
+    {file = "pygame-2.1.2-pp37-pypy37_pp73-macosx_10_9_x86_64.whl", hash = "sha256:ff961c3280d6ee5f4163f4772f963d7a4dbe42e36c6dd54b79ad436c1f046e5d"},
+    {file = "pygame-2.1.2-pp37-pypy37_pp73-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:fc30e834f65b893d1b4c230070183bf98e6b70c41c1511687e8436a33d5ce49d"},
+    {file = "pygame-2.1.2-pp37-pypy37_pp73-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:5c7600bf307de1ca1dca0cc7840e34604d5b0b0a5a5dad345c3fa62b054b886d"},
+    {file = "pygame-2.1.2-pp37-pypy37_pp73-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:7fdb93b4282962c9a2ebf1af994ee698be823dd913218ed97a5f2fb372b10b66"},
+    {file = "pygame-2.1.2-pp37-pypy37_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:1fddec8829e96424800c806582d73a5173b7d48946cccf7d035839ca09850db8"},
+    {file = "pygame-2.1.2.tar.gz", hash = "sha256:d6d0eca28f886f0477cd0721ac688189155a587f2bb8eae740e52ca56c3ad23c"},
+]
 pygments = [
     {file = "Pygments-2.13.0-py3-none-any.whl", hash = "sha256:f643f331ab57ba3c9d89212ee4a2dabc6e94f117cf4eefde99a0574720d14c42"},
     {file = "Pygments-2.13.0.tar.gz", hash = "sha256:56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"},
@@ -3683,6 +3787,41 @@ rsa = [
 ruamel-yaml = [
     {file = "ruamel.yaml-0.17.21-py3-none-any.whl", hash = "sha256:742b35d3d665023981bd6d16b3d24248ce5df75fdb4e2924e93a05c1f8b61ca7"},
     {file = "ruamel.yaml-0.17.21.tar.gz", hash = "sha256:8b7ce697a2f212752a35c1ac414471dc16c424c9573be4926b56ff3f5d23b7af"},
+]
+ruamel-yaml-clib = [
+    {file = "ruamel.yaml.clib-0.2.7-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:d5859983f26d8cd7bb5c287ef452e8aacc86501487634573d260968f753e1d71"},
+    {file = "ruamel.yaml.clib-0.2.7-cp310-cp310-macosx_12_0_arm64.whl", hash = "sha256:debc87a9516b237d0466a711b18b6ebeb17ba9f391eb7f91c649c5c4ec5006c7"},
+    {file = "ruamel.yaml.clib-0.2.7-cp310-cp310-manylinux2014_aarch64.whl", hash = "sha256:df5828871e6648db72d1c19b4bd24819b80a755c4541d3409f0f7acd0f335c80"},
+    {file = "ruamel.yaml.clib-0.2.7-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl", hash = "sha256:efa08d63ef03d079dcae1dfe334f6c8847ba8b645d08df286358b1f5293d24ab"},
+    {file = "ruamel.yaml.clib-0.2.7-cp310-cp310-win32.whl", hash = "sha256:763d65baa3b952479c4e972669f679fe490eee058d5aa85da483ebae2009d231"},
+    {file = "ruamel.yaml.clib-0.2.7-cp310-cp310-win_amd64.whl", hash = "sha256:d000f258cf42fec2b1bbf2863c61d7b8918d31ffee905da62dede869254d3b8a"},
+    {file = "ruamel.yaml.clib-0.2.7-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:045e0626baf1c52e5527bd5db361bc83180faaba2ff586e763d3d5982a876a9e"},
+    {file = "ruamel.yaml.clib-0.2.7-cp311-cp311-macosx_12_6_arm64.whl", hash = "sha256:721bc4ba4525f53f6a611ec0967bdcee61b31df5a56801281027a3a6d1c2daf5"},
+    {file = "ruamel.yaml.clib-0.2.7-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:4b3a93bb9bc662fc1f99c5c3ea8e623d8b23ad22f861eb6fce9377ac07ad6072"},
+    {file = "ruamel.yaml.clib-0.2.7-cp36-cp36m-macosx_12_0_arm64.whl", hash = "sha256:a234a20ae07e8469da311e182e70ef6b199d0fbeb6c6cc2901204dd87fb867e8"},
+    {file = "ruamel.yaml.clib-0.2.7-cp36-cp36m-manylinux2014_aarch64.whl", hash = "sha256:15910ef4f3e537eea7fe45f8a5d19997479940d9196f357152a09031c5be59f3"},
+    {file = "ruamel.yaml.clib-0.2.7-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl", hash = "sha256:370445fd795706fd291ab00c9df38a0caed0f17a6fb46b0f607668ecb16ce763"},
+    {file = "ruamel.yaml.clib-0.2.7-cp36-cp36m-win32.whl", hash = "sha256:ecdf1a604009bd35c674b9225a8fa609e0282d9b896c03dd441a91e5f53b534e"},
+    {file = "ruamel.yaml.clib-0.2.7-cp36-cp36m-win_amd64.whl", hash = "sha256:f34019dced51047d6f70cb9383b2ae2853b7fc4dce65129a5acd49f4f9256646"},
+    {file = "ruamel.yaml.clib-0.2.7-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:2aa261c29a5545adfef9296b7e33941f46aa5bbd21164228e833412af4c9c75f"},
+    {file = "ruamel.yaml.clib-0.2.7-cp37-cp37m-macosx_12_0_arm64.whl", hash = "sha256:f01da5790e95815eb5a8a138508c01c758e5f5bc0ce4286c4f7028b8dd7ac3d0"},
+    {file = "ruamel.yaml.clib-0.2.7-cp37-cp37m-manylinux2014_aarch64.whl", hash = "sha256:40d030e2329ce5286d6b231b8726959ebbe0404c92f0a578c0e2482182e38282"},
+    {file = "ruamel.yaml.clib-0.2.7-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl", hash = "sha256:c3ca1fbba4ae962521e5eb66d72998b51f0f4d0f608d3c0347a48e1af262efa7"},
+    {file = "ruamel.yaml.clib-0.2.7-cp37-cp37m-win32.whl", hash = "sha256:7bdb4c06b063f6fd55e472e201317a3bb6cdeeee5d5a38512ea5c01e1acbdd93"},
+    {file = "ruamel.yaml.clib-0.2.7-cp37-cp37m-win_amd64.whl", hash = "sha256:be2a7ad8fd8f7442b24323d24ba0b56c51219513cfa45b9ada3b87b76c374d4b"},
+    {file = "ruamel.yaml.clib-0.2.7-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:91a789b4aa0097b78c93e3dc4b40040ba55bef518f84a40d4442f713b4094acb"},
+    {file = "ruamel.yaml.clib-0.2.7-cp38-cp38-macosx_12_0_arm64.whl", hash = "sha256:99e77daab5d13a48a4054803d052ff40780278240a902b880dd37a51ba01a307"},
+    {file = "ruamel.yaml.clib-0.2.7-cp38-cp38-manylinux2014_aarch64.whl", hash = "sha256:3243f48ecd450eddadc2d11b5feb08aca941b5cd98c9b1db14b2fd128be8c697"},
+    {file = "ruamel.yaml.clib-0.2.7-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl", hash = "sha256:8831a2cedcd0f0927f788c5bdf6567d9dc9cc235646a434986a852af1cb54b4b"},
+    {file = "ruamel.yaml.clib-0.2.7-cp38-cp38-win32.whl", hash = "sha256:3110a99e0f94a4a3470ff67fc20d3f96c25b13d24c6980ff841e82bafe827cac"},
+    {file = "ruamel.yaml.clib-0.2.7-cp38-cp38-win_amd64.whl", hash = "sha256:92460ce908546ab69770b2e576e4f99fbb4ce6ab4b245345a3869a0a0410488f"},
+    {file = "ruamel.yaml.clib-0.2.7-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:5bc0667c1eb8f83a3752b71b9c4ba55ef7c7058ae57022dd9b29065186a113d9"},
+    {file = "ruamel.yaml.clib-0.2.7-cp39-cp39-macosx_12_0_arm64.whl", hash = "sha256:4a4d8d417868d68b979076a9be6a38c676eca060785abaa6709c7b31593c35d1"},
+    {file = "ruamel.yaml.clib-0.2.7-cp39-cp39-manylinux2014_aarch64.whl", hash = "sha256:bf9a6bc4a0221538b1a7de3ed7bca4c93c02346853f44e1cd764be0023cd3640"},
+    {file = "ruamel.yaml.clib-0.2.7-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl", hash = "sha256:a7b301ff08055d73223058b5c46c55638917f04d21577c95e00e0c4d79201a6b"},
+    {file = "ruamel.yaml.clib-0.2.7-cp39-cp39-win32.whl", hash = "sha256:d5e51e2901ec2366b79f16c2299a03e74ba4531ddcfacc1416639c557aef0ad8"},
+    {file = "ruamel.yaml.clib-0.2.7-cp39-cp39-win_amd64.whl", hash = "sha256:184faeaec61dbaa3cace407cffc5819f7b977e75360e8d5ca19461cd851a5fc5"},
+    {file = "ruamel.yaml.clib-0.2.7.tar.gz", hash = "sha256:1f08fd5a2bea9c4180db71678e850b995d2a5f4537be0e94557668cf0f5f9497"},
 ]
 scipy = [
     {file = "scipy-1.9.3-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:1884b66a54887e21addf9c16fb588720a8309a57b2e258ae1c7986d4444d3bc0"},

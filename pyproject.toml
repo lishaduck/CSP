@@ -26,6 +26,7 @@
             "strikethrough",
             "tasklist",
         ] }
+    pygame = "^2.1.2"
 
     [tool.poetry.group.dev.dependencies]
         bandit = "^1.7.4"
