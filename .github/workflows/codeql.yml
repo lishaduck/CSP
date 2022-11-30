@@ -82,6 +82,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    if: github.event_name == 'pull_request'
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v3
