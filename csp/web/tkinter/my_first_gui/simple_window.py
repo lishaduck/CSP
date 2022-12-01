@@ -1,8 +1,11 @@
 """A program creates a window on your screen using Tkinter."""
 
 
+import os
+from pathlib import Path
 from tkinter import *  # pylint: disable=unused-wildcard-import, wildcard-import
 
+p = Path(os.path.realpath(__file__)).parent
 username: str = ""
 password: str = ""
 
@@ -84,8 +87,11 @@ canvas: Canvas = Canvas(frame_auth, width=400, height=400)
 canvas.pack()
 
 
+STRAWBERRY_LEMONADE_FILE_NAME = Path.resolve(p / "strawberry-lemonade.png")
+
+
 # create an image using a gif file
-img2 = PhotoImage(file="strawberry-lemonade.png")
+img2 = PhotoImage(file=STRAWBERRY_LEMONADE_FILE_NAME)
 # use image to create a canvas image
 myphoto = canvas.create_image(150, 150, image=img2)
 
@@ -98,8 +104,11 @@ blue_rectangle = canvas.create_rectangle(50, 50, 70, 80, fill="blue")
 screen_message = canvas.create_text(
     300, 300, text="Welcome!", font=("Helvetica", 30), fill="black"
 )
+
+
 # create an image using a gif file
-img = PhotoImage(file="greenChar.gif")
+GREEN_CHAR_FILE_NAME = Path.resolve(p / "greenChar.gif")
+img = PhotoImage(file=GREEN_CHAR_FILE_NAME)
 # use image to create a canvas image
 mychar = canvas.create_image(-100, -100, image=img)
 
