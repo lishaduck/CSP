@@ -1,4 +1,4 @@
-"""A program creates a window on your screen using Tkinter."""
+"""Create a window on your screen using Tkinter."""
 
 
 import os
