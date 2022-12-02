@@ -1,13 +1,11 @@
-"""Tests the average.py module.
-"""
+"""Tests the average.py module."""
 
 
 import random
 import statistics
 import unittest
 
-import average
-import pytest
+from . import average
 
 
 class AverageTest(unittest.TestCase):
