@@ -37,7 +37,7 @@ class ConverterApp(tk.Tk):
         self.ent_cm.pack(pady=5)
 
         self.btn_convert = tk.Button(
-            self.frame, text="'Press to convert", command=self.convert
+            self.frame, text="Press to convert", command=self.convert
         )
         self.btn_convert.pack(padx=175, pady=20)
 
@@ -50,10 +50,10 @@ class ConverterApp(tk.Tk):
         """Convert inches to centimeters."""
         try:
             self.inches = float(self.user_data.get())
+            self.cm = self.inches * 2.54
+            self.ent_cm.config(text=self.cm)
         except ValueError:
             self.invalidated()
-        self.cm = self.inches * 2.54
-        self.ent_cm.config(text=self.cm)
 
     # thanks to: https://www.pythontutorial.net/tkinter/tkinter-validation/
     def validate(self, value) -> bool:
