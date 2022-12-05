@@ -1,4 +1,6 @@
-""""""
+"""A countdown calendar using csv reading and tkinter."""
+
+
 import csv
 import os
 import tkinter as tk
@@ -11,6 +13,9 @@ p = Path(os.path.realpath(__file__)).parent
 class CountdownCalendar(tk.Tk):
     """A countdown calendar."""
 
+    events_file_name = Path.resolve(p / "events.csv")
+    events = ""
+
     def __init__(self):
         """Create an instance of this class."""
         tk.Tk.__init__(self)
@@ -18,6 +23,7 @@ class CountdownCalendar(tk.Tk):
         self.wm_geometry("800x800")
         self.frame = tk.Frame(self, bg="light sky blue")
         self.frame.grid(row=0, column=0, sticky="news")
+        self.frame.pack()
 
         self.canvas = tk.Canvas(self.frame, width=800, height=800)
         self.canvas.pack()
@@ -30,21 +36,22 @@ class CountdownCalendar(tk.Tk):
             fill="black",
         )
 
-        EVENTS_FILE_NAME = Path.resolve(p / "events.csv")
-        print(self.get_events(EVENTS_FILE_NAME))
+        events = self.get_events(self.events_file_name)
+        print(self.get_events(self.events_file_name))
 
         self.frame.tkraise()
 
-    def get_events(self, file_name: Path):
+    def get_events(self, file_name: Path) -> list[list[object]]:
         """Get events from a file."""
+        events: list[list[object]] = []
         with file_name.open("rt", encoding="utf-8", newline="") as leaderboard_file:
-
-            events: list[str] = []
             print("Fetching events.")
             name_reader = csv.reader(leaderboard_file, dialect="excel")
             for line in name_reader:
 
                 event_date = dt.strptime(line[1], "%m/%d/%y").date()
+                current_event = [line[0], event_date]
+                events.append(current_event)
 
                 print(event_date)
         #  return the names list in place of the empty list
@@ -52,7 +59,7 @@ class CountdownCalendar(tk.Tk):
 
     def days_between_dates(self, date1, date2):
         time_between = str(date1 - date2)
-        number_of_days = time_between.split("")
+        number_of_days = time_between.split(" ")
         return number_of_days[0]
 
 
