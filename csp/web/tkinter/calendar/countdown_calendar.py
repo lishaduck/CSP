@@ -59,6 +59,3 @@ class CountdownCalendar(tk.Tk):
 if __name__ == "__main__":
     app = CountdownCalendar()
     app.mainloop()
-if __name__ == "__main__":
-    app = CountdownCalendar()
-    app.mainloop()
