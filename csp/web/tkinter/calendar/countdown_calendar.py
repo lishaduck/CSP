@@ -24,19 +24,19 @@ class CountdownCalendar(tk.Tk):
         tk.Tk.__init__(self)
         self.title("Countdown Calendar")
         self.wm_geometry("800x800")
-        self.frame = tk.Frame(self, bg="light sky blue")
+        self.frame = tk.Frame(self)
         self.frame.grid(row=0, column=0, sticky="news")
         self.frame.pack()
 
-        self.canvas = tk.Canvas(self.frame, width=800, height=800)
+        self.canvas = tk.Canvas(self.frame, width=800, height=800, bg="light sky blue")
         self.canvas.pack()
 
         self.canvas.create_text(
             400,
             50,
             text="My Countdown Calendar!",
-            font=("Helvetica", 30),
-            fill="black",
+            fill="sienna2",
+            font="Arial 28 bold",
         )
 
         events = self.get_events(self.events_file_name)
