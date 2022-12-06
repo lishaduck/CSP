@@ -79,7 +79,14 @@ class CountdownCalendar(tk.Tk):
         typing_print("Events fetched!   ")
         return events
 
-    def days_between_dates(self, date1, date2):
+    def days_between_dates(self, date1, date2: date) -> str:
+        """Find the number of days between two dates.
+
+        :param date1: First date
+        :type date1: date
+        :param date2: Second date
+        :return: str
+        """
         time_between = str(date1 - date2)
         number_of_days = time_between.split(" ")
         return number_of_days[0]
