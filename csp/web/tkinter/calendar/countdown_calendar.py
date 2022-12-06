@@ -8,6 +8,8 @@ from datetime import date
 from datetime import datetime as dt
 from pathlib import Path
 
+from csp.utilities import typing_print
+
 p = Path(os.path.realpath(__file__)).parent
 
 
@@ -39,7 +41,6 @@ class CountdownCalendar(tk.Tk):
 
         events = self.get_events(self.events_file_name)
         today = date.today()
-        print(self.get_events(self.events_file_name))
 
         vertical_space = 100
 
@@ -64,8 +65,8 @@ class CountdownCalendar(tk.Tk):
     def get_events(self, file_name: Path) -> list[list[object]]:
         """Get events from a file."""
         events: list[list[object]] = []
+        typing_print("Fetching events...", end="\r")
         with file_name.open("rt", encoding="utf-8", newline="") as leaderboard_file:
-            print("Fetching events.")
             name_reader = csv.reader(leaderboard_file, dialect="excel")
             for line in name_reader:
 
@@ -73,8 +74,9 @@ class CountdownCalendar(tk.Tk):
                 current_event: list[object] = [line[0], event_date]
                 events.append(current_event)
 
-                print(event_date)
+                # print(event_date)
         #  return the names list in place of the empty list
+        typing_print("Events fetched!   ")
         return events
 
     def days_between_dates(self, date1, date2):
