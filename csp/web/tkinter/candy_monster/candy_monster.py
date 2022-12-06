@@ -1,23 +1,21 @@
-""" The Candy Monster Game
+"""The Candy Monster Game.
 
 Victor, Eli
 """
 
-
 # import statements
+import random as rand
 
+try:
+    from . import candy_monster_gui as gui
+except ImportError:
+    import candy_monster_gui as gui
 
 # Step 1 - Create the GUI
 
-# create window and canvas
-
-# create game title and instructions text objects
-
-# create score display as label widget
-
-# Level widget
-
-# create image using green frog
+if __name__ == "__main__":
+    window = gui.CandyMonsterGUI()
+    window.mainloop()
 
 
 # Step 2: Add Code to Make Candy and Drop It
