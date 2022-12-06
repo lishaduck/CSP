@@ -4,6 +4,7 @@
 import csv
 import os
 import tkinter as tk
+from datetime import date
 from datetime import datetime as dt
 from pathlib import Path
 
@@ -37,7 +38,26 @@ class CountdownCalendar(tk.Tk):
         )
 
         events = self.get_events(self.events_file_name)
+        today = date.today()
         print(self.get_events(self.events_file_name))
+
+        vertical_space = 100
+
+        for event in events:
+            event_name = event[0]  # get the name of the event
+            days_until = self.days_between_dates(event[1], today)
+            display = f"It is {days_until} days until {event_name}"
+
+            self.canvas.create_text(
+                100,
+                vertical_space,
+                anchor="w",
+                fill="sienna2",
+                font="Arial 28 bold",
+                text=display,
+            )
+
+            vertical_space = vertical_space + 30
 
         self.frame.tkraise()
 
@@ -49,8 +69,8 @@ class CountdownCalendar(tk.Tk):
             name_reader = csv.reader(leaderboard_file, dialect="excel")
             for line in name_reader:
 
-                event_date = dt.strptime(line[1], "%m/%d/%y").date()
-                current_event = [line[0], event_date]
+                event_date = dt.strptime(line[1], "%m/%d/%Y").date()
+                current_event: list[object] = [line[0], event_date]
                 events.append(current_event)
 
                 print(event_date)
