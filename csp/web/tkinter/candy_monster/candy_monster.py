@@ -136,6 +136,7 @@ class CandyMonsterGUI(tk.Tk):
         xdistance = abs(self.canvas.coords(item1)[0] - self.canvas.coords(item2)[0])
         ydistance = abs(self.canvas.coords(item1)[1] - self.canvas.coords(item2)[1])
         overlap = xdistance < distance and ydistance < distance
+        return overlap
 
     # Check hits function to see if character hits a bad candy
     def check_hits(self):
