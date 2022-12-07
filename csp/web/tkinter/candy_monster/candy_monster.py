@@ -109,10 +109,8 @@ class CandyMonsterGUI(tk.Tk):
 
     # Step 3: Add code to update the score and end the game
 
-    def switch_level(self):
-        """Update the score, level, and candy_speed."""
-
     def update_score_level(self):
+        """Update the score, level, and candy_speed."""
         self.score = self.score + 1
         self.score_display.config(text="Score :" + str(self.score))
         if self.score > 5 and self.score <= 10:
@@ -129,7 +127,7 @@ class CandyMonsterGUI(tk.Tk):
         self.root.destroy()
 
     def end_title(self):
-        """Show the end screen"""
+        """Show the end screen."""
         self.canvas.delete(self.game_title)
         self.canvas.delete(self.directions)
 
