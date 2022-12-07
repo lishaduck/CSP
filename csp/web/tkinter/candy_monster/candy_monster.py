@@ -87,6 +87,10 @@ class CandyMonsterGUI(tk.Tk):
             "white",
         ]
 
+        # Bind the keys to the character
+        self.canvas.bind_all("<KeyPress>", self.check_input)  # bind key press
+        self.canvas.bind_all("<KeyRelease>", self.end_input)  # bind all keys to circle
+
     # FUNCTION SECTION
 
     def make_candy(self):
@@ -179,8 +183,6 @@ class CandyMonsterGUI(tk.Tk):
             # Decrease character x position
             self.canvas.move(self.character, -10, 0)
         self.window.after(16, self.move_character)
-
-    # Bind the keys to the character
 
     # Step 6: Schedule all the functions and make a working game!
 
