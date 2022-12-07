@@ -24,10 +24,13 @@ class CandyMonsterGUI(tk.Tk):
         self.config(cursor="target")
         self.wm_geometry("500x500")
 
-        self.root: ttk.Frame = ttk.Frame(self)
-        self.root.grid(column=0, row=0, sticky="news")
-        self.canvas: tk.Canvas = tk.Canvas(self.root, width=400, height=400, bg="black")
-        self.canvas.grid(column=0, row=0, sticky="news")
+        self.game_frame: ttk.Frame = ttk.Frame(self)
+        self.game_frame.grid(column=0, row=0, sticky="news")
+
+        self.canvas: tk.Canvas = tk.Canvas(
+            self.game_frame, width=500, height=500, bg="black"
+        )
+        self.canvas.grid(column=1, row=1)
 
         # create game title and instructions text objects
         self.game_title = self.canvas.create_text(
@@ -51,16 +54,16 @@ class CandyMonsterGUI(tk.Tk):
         # create score display as label widget
         self.score = 0
         self.score_display = ttk.Label(
-            self.root, text="Score: " + str(self.score), justify="center"
+            self.game_frame, text="Score: " + str(self.score), justify="center"
         )
-        self.score_display.grid(column=0, row=1, sticky="news")
+        self.score_display.grid(column=1, row=2)
 
         # Level widget
         self.level = 1
         self.level_display = ttk.Label(
-            self.root, text="Level: " + str(self.level), justify="center"
+            self.game_frame, text="Level: " + str(self.level), justify="center"
         )
-        self.level_display.grid(column=0, row=2, sticky="news")
+        self.level_display.grid(column=1, row=3)
 
         # create image using green frog
         self.GREEN_CHAR_FILE_NAME = Path.resolve(self.p / "greenChar.gif")
@@ -96,7 +99,7 @@ class CandyMonsterGUI(tk.Tk):
         self.candy_list.append(candy)
         if candy_color == "red":
             self.bad_candy_list.append(candy)
-        self.root.after(1000, self.make_candy())
+        self.game_frame.after(1000, self.make_candy())
 
     def move_candy(self):
         """Move the candies downward."""
@@ -105,7 +108,7 @@ class CandyMonsterGUI(tk.Tk):
             if self.canvas.coords(candy)[1] > 400:
                 xposition = rand.randint(1, 400)
                 self.canvas.coords(candy, xposition, 0, xposition + 30, 30)
-        self.root.after(50, (self.move_candy()))
+        self.game_frame.after(50, (self.move_candy()))
 
     # Step 3: Add code to update the score and end the game
 
@@ -124,7 +127,7 @@ class CandyMonsterGUI(tk.Tk):
 
     def end_game_over(self):
         """End the game."""
-        self.root.destroy()
+        self.game_frame.destroy()
 
     def end_title(self):
         """Show the end screen."""
