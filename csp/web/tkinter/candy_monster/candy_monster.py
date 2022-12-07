@@ -14,9 +14,9 @@ from tkinter import ttk
 class CandyMonsterGUI(tk.Tk):
     """The Candy Monster Game."""
 
-    p = Path(os.path.realpath(__file__)).parent
+    p: Path = Path(os.path.realpath(__file__)).parent
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Create an instance of this class."""
         super().__init__()
         # create window and canvas
@@ -59,25 +59,25 @@ class CandyMonsterGUI(tk.Tk):
         self.score_display.grid(column=1, row=2)
 
         # Level widget
-        self.level = 1
-        self.level_display = ttk.Label(
+        self.level: int = 1
+        self.level_display: ttk.Label = ttk.Label(
             self.window, text="Level: " + str(self.level), justify="center"
         )
         self.level_display.grid(column=1, row=3)
 
         # create image using green frog
-        self.GREEN_CHAR_FILE_NAME = Path.resolve(self.p / "greenChar.gif")
-        self.player_image = tk.PhotoImage(file=self.GREEN_CHAR_FILE_NAME)
+        self.GREEN_CHAR_FILE_NAME: Path = Path.resolve(self.p / "greenChar.gif")
+        self.player_image: tk.PhotoImage = tk.PhotoImage(file=self.GREEN_CHAR_FILE_NAME)
         # use image to create a canvas image
         self.character = self.canvas.create_image((200, 360), image=self.player_image)
 
         # Step 2: Add Code to Make Candy and Drop It
 
         # variable declarations for managing candy
-        self.candy_list = []
-        self.bad_candy_list = []
-        self.candy_speed = 2
-        self.candy_color_list = [
+        self.candy_list: list = []
+        self.bad_candy_list: list = []
+        self.candy_speed: int = 2
+        self.candy_color_list: list[str] = [
             "red",
             "yellow",
             "blue",
@@ -87,16 +87,22 @@ class CandyMonsterGUI(tk.Tk):
             "white",
         ]
 
+        self.game_over: int
+
         # Bind the keys to the character
         self.canvas.bind_all("<KeyPress>", self.check_input)  # bind key press
-        self.canvas.bind_all("<KeyRelease>", self.end_input)  # bind all keys to circle
+        self.canvas.bind_all("<KeyRelease>", self.end_input)  # bind all key unpress
 
     # FUNCTION SECTION
 
-    def make_candy(self):
+    # Schedule all of the functions
+
+    # FUNCTION SECTION - where the methods are located
+    # note: comments are changed to docstrings when applicable for better IDE introspection
+    def make_candy(self) -> None:
         """Make the candies."""
-        xposition = rand.randint(1, 400)
-        candy_color = rand.choice(self.candy_color_list)
+        xposition: int = rand.randint(1, 400)
+        candy_color: str = rand.choice(self.candy_color_list)
         candy = self.canvas.create_oval(
             xposition, 0, xposition + 30, 30, fill=candy_color
         )
@@ -105,59 +111,65 @@ class CandyMonsterGUI(tk.Tk):
             self.bad_candy_list.append(candy)
         self.window.after(1000, self.make_candy())
 
-    def move_candy(self):
+    def move_candy(self) -> None:
         """Move the candies downward."""
         for candy in self.candy_list:
             self.canvas.move(candy, 0, self.candy_speed)
             if self.canvas.coords(candy)[1] > 400:
-                xposition = rand.randint(1, 400)
+                xposition: int = rand.randint(1, 400)
                 self.canvas.coords(candy, xposition, 0, xposition + 30, 30)
         self.window.after(50, (self.move_candy()))
 
     # Step 3: Add code to update the score and end the game
 
-    def update_score_level(self):
+    def update_score_level(self) -> None:
         """Update the score, level, and candy_speed."""
-        self.score = self.score + 1
+        self.score: int = self.score + 1
         self.score_display.config(text="Score :" + str(self.score))
         if 5 < self.score <= 10:
             self.candy_speed = self.candy_speed + 1
-            level = 2
+            level: int = 2
             self.level_display.config(text="Level :" + str(level))
         elif self.score > 10:
             self.candy_speed = self.candy_speed + 1
-            level = 3
+            level: int = 3
             self.level_display.config(text="Level :" + str(level))
 
     # Step 4: Add code to check if candy and character collide
 
-    # Collision function to check distance between objects
-    def collision(self, item1, item2, distance):
-        xdistance = abs(self.canvas.coords(item1)[0] - self.canvas.coords(item2)[0])
-        ydistance = abs(self.canvas.coords(item1)[1] - self.canvas.coords(item2)[1])
-        overlap = xdistance < distance and ydistance < distance
+    def collision(self, item1, item2, distance) -> bool:
+        """Check distance between objects."""
+        xdistance: float = abs(
+            self.canvas.coords(item1)[0] - self.canvas.coords(item2)[0]
+        )
+        ydistance: float = abs(
+            self.canvas.coords(item1)[1] - self.canvas.coords(item2)[1]
+        )
+        overlap: bool = xdistance < distance and ydistance < distance
         return overlap
 
-    # Check hits function to see if character hits a bad candy
-    def check_hits(self):
+    def check_hits(self) -> bool:
+        """See if character hits a bad candy."""
         for candy in self.bad_candy_list:
-            if self.collision(self.character, candy, 30):
-                self.game_over = self.canvas.create_text(
-                    200, 200, text="Game Over", fill="red"
-                )
+            if overlap := self.collision(self.character, candy, 30):
+                self.canvas.create_text(200, 200, text="Game Over", fill="red")
                 self.window.after(2000, self.end_game_over)
+                return overlap
         for candy in self.candy_list:
-            if self.collision(self.character, candy, 30):
+            if overlap := self.collision(self.character, candy, 30):
                 self.canvas.delete(candy)
                 self.candy_list.remove(candy)
                 self.update_score_level()
+                return overlap
+        self.window.after(100, self.check_hits)
+        return False
 
     # Step 5:Add code to control the character with arrow keys
 
     # Direction variable
-    move_direction = 0
+    move_direction: str = "0"
 
-    def check_input(self, event):
+    def check_input(self, event: tk.Event) -> None:
         """Handle when user presses arrow keys."""
         key = event.keysym
         if key == "Right":
@@ -165,11 +177,11 @@ class CandyMonsterGUI(tk.Tk):
         elif key == "Left":
             self.move_direction = "Left"
 
-    def end_input(self, event):
+    def end_input(self, event: tk.Event) -> None:  # pylint: disable=unused-argument
         """Stop movement when user does not press arrow keys."""
         self.move_direction = "None"
 
-    def move_character(self):
+    def move_character(self) -> None:
         """Move character."""
         if (
             self.move_direction == "Right"
@@ -185,15 +197,12 @@ class CandyMonsterGUI(tk.Tk):
             self.canvas.move(self.character, -10, 0)
         self.window.after(16, self.move_character)
 
-    # Step 6: Schedule all the functions and make a working game!
-
-    # Schedule all of the functions
-    def end_game_over(self):
+    def end_game_over(self) -> None:
         """End the game."""
         self.window.destroy()
 
-    def end_title(self):
-        """Show the end screen."""
+    def end_titles(self) -> None:
+        """Show the game screen."""
         self.canvas.delete(self.game_title)
         self.canvas.delete(self.directions)
 
@@ -201,6 +210,6 @@ class CandyMonsterGUI(tk.Tk):
 # Step 1 - Create the GUI
 
 if __name__ == "__main__":
-    root = CandyMonsterGUI()
+    root: CandyMonsterGUI = CandyMonsterGUI()
     # last line of code
     root.mainloop()
