@@ -4,45 +4,69 @@ Victor, Eli
 """
 
 
+import os
 import random as rand
 import tkinter as tk
+from pathlib import Path
+from tkinter import ttk
 
 
 class CandyMonsterGUI(tk.Tk):
     """The Candy Monster Game."""
 
-    # TODO: move to proper location
-    score_display: tk.Label
-    level_display: tk.Label
-
-    directions: int
+    p = Path(os.path.realpath(__file__)).parent
 
     def __init__(self):
         """Create an instance of this class."""
-        tk.Tk.__init__(self)
+        super().__init__()
         # create window and canvas
-        self.title = self.title = "Nolan The Game"
+        self.title("Nolan - The Game")
+        self.config(cursor="target")
         self.wm_geometry("500x500")
 
-        self.window = tk.Frame(self)
-        self.window.pack()
-        self.canvas = tk.Canvas(self.window, width=400, height=400, bg="black")
-        self.canvas.pack()
+        self.root: ttk.Frame = ttk.Frame(self)
+        self.root.grid(column=0, row=0, sticky="news")
+        self.canvas: tk.Canvas = tk.Canvas(self.root, width=400, height=400, bg="black")
+        self.canvas.grid(column=0, row=0, sticky="news")
 
         # create game title and instructions text objects
-        self.title = self.canvas.create_text(
+        self.game_title = self.canvas.create_text(
             200,
             200,
-            text="Nolan - The Game:\nCandy Monster",
+            text="Nolan - The Game:\nThe Candy Monster",
             font=("Arial", 30, "bold"),
             fill="white",
+            justify="center",
+        )
+
+        self.directions = self.canvas.create_text(
+            200,
+            275,  # 300 to too far down
+            text="Collect Candy but Avoid the Red Ones!",
+            font=("Arial", 15, "bold"),  # 30 was to large
+            fill="white",
+            justify="center",
         )
 
         # create score display as label widget
+        self.score = 0
+        self.score_display = ttk.Label(
+            self.root, text="Score: " + str(self.score), justify="center"
+        )
+        self.score_display.grid(column=0, row=1, sticky="news")
 
         # Level widget
+        self.level = 1
+        self.level_display = ttk.Label(
+            self.root, text="Level: " + str(self.level), justify="center"
+        )
+        self.level_display.grid(column=0, row=2, sticky="news")
 
         # create image using green frog
+        self.GREEN_CHAR_FILE_NAME = Path.resolve(self.p / "greenChar.gif")
+        self.player_image = tk.PhotoImage(file=self.GREEN_CHAR_FILE_NAME)
+        # use image to create a canvas image
+        self.character = self.canvas.create_image((200, 360), image=self.player_image)
 
         # Step 2: Add Code to Make Candy and Drop It
 
@@ -59,7 +83,6 @@ class CandyMonsterGUI(tk.Tk):
             "pink",
             "white",
         ]
-        self.score = 0
 
     # FUNCTION SECTION
 
@@ -73,7 +96,7 @@ class CandyMonsterGUI(tk.Tk):
         self.candy_list.append(candy)
         if candy_color == "red":
             self.bad_candy_list.append(candy)
-        self.window.after(1000, self.make_candy())
+        self.root.after(1000, self.make_candy())
 
     def move_candy(self):
         """Move the candies downward."""
@@ -82,7 +105,7 @@ class CandyMonsterGUI(tk.Tk):
             if self.canvas.coords(candy)[1] > 400:
                 xposition = rand.randint(1, 400)
                 self.canvas.coords(candy, xposition, 0, xposition + 30, 30)
-        self.window.after(50, (self.move_candy()))
+        self.root.after(50, (self.move_candy()))
 
     # Step 3: Add code to update the score and end the game
 
@@ -103,11 +126,11 @@ class CandyMonsterGUI(tk.Tk):
 
     def end_game_over(self):
         """End the game."""
-        self.window.destroy()
+        self.root.destroy()
 
     def end_title(self):
         """Show the end screen"""
-        self.canvas.delete(self.title)
+        self.canvas.delete(self.game_title)
         self.canvas.delete(self.directions)
 
     # Step 4: Add code to check if candy and character collide
@@ -132,11 +155,10 @@ class CandyMonsterGUI(tk.Tk):
 
     # Schedule all of the functions
 
-    # last line of code
-
 
 # Step 1 - Create the GUI
 
 if __name__ == "__main__":
     window = CandyMonsterGUI()
+    # last line of code
     window.mainloop()
