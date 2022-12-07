@@ -41,9 +41,9 @@ class CandyMonsterGUI(tk.Tk):
 
         self.directions = self.canvas.create_text(
             200,
-            275,  # 300 to too far down
+            275,  # 300 is too far down
             text="Collect Candy but Avoid the Red Ones!",
-            font=("Arial", 15, "bold"),  # 30 was to large
+            font=("Arial", 15, "bold"),  # 30 was too large
             fill="white",
             justify="center",
         )
