@@ -93,9 +93,14 @@ class CandyMonsterGUI(tk.Tk):
         self.canvas.bind_all("<KeyPress>", self.check_input)  # bind key press
         self.canvas.bind_all("<KeyRelease>", self.end_input)  # bind all key unpress
 
-    # FUNCTION SECTION
+        # Step 6: Schedule all the functions and make a working game!
 
-    # Schedule all of the functions
+        # Schedule all of the functions
+        self.window.after(1000, self.end_titles)  # destroy title and instructions
+        self.window.after(1000, self.make_candy)  # start making candy
+        self.window.after(1000, self.move_candy)  # start moving candy
+        self.window.after(1000, self.check_hits)  # check if character hit a candy
+        self.window.after(1000, self.move_character)  # handle keyboard controls
 
     # FUNCTION SECTION - where the methods are located
     # note: comments are changed to docstrings when applicable for better IDE introspection
