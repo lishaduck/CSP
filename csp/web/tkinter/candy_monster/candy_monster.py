@@ -162,13 +162,13 @@ class CandyMonsterGUI(tk.Tk):
         overlap: bool = xdistance < distance and ydistance < distance
         return overlap
 
-    def check_hits(self) -> bool:
+    def check_hits(self) -> bool:  # ? does this need to return a bool?
         """See if character hits a bad candy."""
         for candy in self.bad_candy_list:
             if overlap := self.collision(self.character, candy, 30):
                 self.canvas.create_text(200, 200, text="Game Over", fill="red")
                 self.window.after(2000, self.end_game_over)
-                return overlap
+                return overlap  # TODO : use this to show a score? per the doc.
         for candy in self.candy_list:
             if overlap := self.collision(self.character, candy, 30):
                 self.canvas.delete(candy)
