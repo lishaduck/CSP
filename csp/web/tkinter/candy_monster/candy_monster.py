@@ -65,8 +65,8 @@ class CandyMonsterGUI(tk.Tk):
         )
         self.level_display.grid(column=1, row=3)
 
-        # create image using green frog
-        self.green_char_file_name: Path = Path.resolve(self.p / "greenChar.gif")
+        # create image using -g-r-e-e-n- -f-r-o-g- Nolan
+        self.green_char_file_name: Path = Path.resolve(self.p / "nolan.gif")
         self.player_image: tk.PhotoImage = tk.PhotoImage(file=self.green_char_file_name)
         # use image to create a canvas image
         self.character = self.canvas.create_image((200, 360), image=self.player_image)
@@ -142,7 +142,7 @@ class CandyMonsterGUI(tk.Tk):
 
     def end_game_over(self) -> None:
         """End the game."""
-        self.window.destroy()
+        self.destroy()
 
     def end_titles(self) -> None:
         """Show the game screen."""
@@ -162,23 +162,21 @@ class CandyMonsterGUI(tk.Tk):
         overlap: bool = xdistance < distance and ydistance < distance
         return overlap
 
-    def check_hits(self) -> bool:  # ? does this need to return a bool?
+    def check_hits(self) -> None:  # ? does this need to return a bool?
         """See if character hits a bad candy."""
         for candy in self.bad_candy_list:
-            if overlap := self.collision(self.character, candy, 30):
+            if self.collision(self.character, candy, 30):
                 self.canvas.create_text(200, 200, text="Game Over", fill="red")
                 self.window.after(2000, self.end_game_over)
-                return overlap  # TODO: use this to show a score? per the doc.
+
         for candy in self.candy_list:
-            if overlap := self.collision(self.character, candy, 30):
+            if self.collision(self.character, candy, 30):
                 self.canvas.delete(candy)
                 self.candy_list.remove(candy)
                 self.update_score_level()
-                return overlap
         self.window.after(100, self.check_hits)
-        return False
 
-    # Step 5:Add code to control the character with arrow keys
+    # Step 5: Add code to control the character with arrow keys
 
     # Direction variable
     move_direction: str = "0"
@@ -203,10 +201,7 @@ class CandyMonsterGUI(tk.Tk):
         ):
             # Increase character x position
             self.canvas.move(self.character, 10, 0)
-        if (
-            self.move_direction == "Left"
-            and self.canvas.coords(self.character)[0] < 400
-        ):
+        if self.move_direction == "Left" and self.canvas.coords(self.character)[0] > 0:
             # Decrease character x position
             self.canvas.move(self.character, -10, 0)
         self.window.after(16, self.move_character)
