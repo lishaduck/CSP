@@ -3,7 +3,7 @@
 Victor, Eli
 """
 
-
+# import statements
 import os
 import random as rand
 import tkinter as tk
@@ -140,6 +140,15 @@ class CandyMonsterGUI(tk.Tk):
             level: int = 3
             self.level_display.config(text="Level :" + str(level))
 
+    def end_game_over(self) -> None:
+        """End the game."""
+        self.window.destroy()
+
+    def end_titles(self) -> None:
+        """Show the game screen."""
+        self.canvas.delete(self.game_title)
+        self.canvas.delete(self.directions)
+
     # Step 4: Add code to check if candy and character collide
 
     def collision(self, item1, item2, distance) -> bool:
@@ -202,19 +211,11 @@ class CandyMonsterGUI(tk.Tk):
             self.canvas.move(self.character, -10, 0)
         self.window.after(16, self.move_character)
 
-    def end_game_over(self) -> None:
-        """End the game."""
-        self.window.destroy()
-
-    def end_titles(self) -> None:
-        """Show the game screen."""
-        self.canvas.delete(self.game_title)
-        self.canvas.delete(self.directions)
-
 
 # Step 1 - Create the GUI
 
 if __name__ == "__main__":
     root: CandyMonsterGUI = CandyMonsterGUI()
+
     # last line of code
     root.mainloop()
