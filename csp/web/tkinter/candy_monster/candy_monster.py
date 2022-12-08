@@ -114,7 +114,7 @@ class CandyMonsterGUI(tk.Tk):
         self.candy_list.append(candy)
         if candy_color == "red":
             self.bad_candy_list.append(candy)
-        self.window.after(1000, self.make_candy())
+        self.window.after(1000, self.make_candy)
 
     def move_candy(self) -> None:
         """Move the candies downward."""
@@ -123,7 +123,7 @@ class CandyMonsterGUI(tk.Tk):
             if self.canvas.coords(candy)[1] > 400:
                 xposition: int = rand.randint(1, 400)
                 self.canvas.coords(candy, xposition, 0, xposition + 30, 30)
-        self.window.after(50, (self.move_candy()))
+        self.window.after(50, (self.move_candy))
 
     # Step 3: Add code to update the score and end the game
 
