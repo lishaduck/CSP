@@ -66,8 +66,8 @@ class CandyMonsterGUI(tk.Tk):
         self.level_display.grid(column=1, row=3)
 
         # create image using green frog
-        self.GREEN_CHAR_FILE_NAME: Path = Path.resolve(self.p / "greenChar.gif")
-        self.player_image: tk.PhotoImage = tk.PhotoImage(file=self.GREEN_CHAR_FILE_NAME)
+        self.green_char_file_name: Path = Path.resolve(self.p / "greenChar.gif")
+        self.player_image: tk.PhotoImage = tk.PhotoImage(file=self.green_char_file_name)
         # use image to create a canvas image
         self.character = self.canvas.create_image((200, 360), image=self.player_image)
 
@@ -168,7 +168,7 @@ class CandyMonsterGUI(tk.Tk):
             if overlap := self.collision(self.character, candy, 30):
                 self.canvas.create_text(200, 200, text="Game Over", fill="red")
                 self.window.after(2000, self.end_game_over)
-                return overlap  # TODO : use this to show a score? per the doc.
+                return overlap  # TODO: use this to show a score? per the doc.
         for candy in self.candy_list:
             if overlap := self.collision(self.character, candy, 30):
                 self.canvas.delete(candy)
