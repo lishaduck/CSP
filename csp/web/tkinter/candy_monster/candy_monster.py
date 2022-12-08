@@ -131,14 +131,9 @@ class CandyMonsterGUI(tk.Tk):
         """Update the score, level, and candy_speed."""
         self.score: int = self.score + 1
         self.score_display.config(text="Score :" + str(self.score))
-        if 5 < self.score <= 10:
-            self.candy_speed = self.candy_speed + 1
-            level: int = 2
-            self.level_display.config(text="Level :" + str(level))
-        elif self.score > 10:
-            self.candy_speed = self.candy_speed + 1
-            level: int = 3
-            self.level_display.config(text="Level :" + str(level))
+        level: int = self.score // 5 + 1
+        self.candy_speed = int(((self.candy_speed + 1) / 5) + (level * 5))
+        self.level_display.config(text="Level :" + str(level))
 
     def end_game_over(self) -> None:
         """End the game."""
