@@ -96,11 +96,8 @@ class CandyMonsterGUI(tk.Tk):
         # Step 6: Schedule all the functions and make a working game!
 
         # Schedule all of the functions
-        self.window.after(1000, self.end_titles)  # destroy title and instructions
-        self.window.after(1000, self.make_candy)  # start making candy
-        self.window.after(1000, self.move_candy)  # start moving candy
-        self.window.after(1000, self.check_hits)  # check if character hit a candy
-        self.window.after(1000, self.move_character)  # handle keyboard controls
+        btn_start = ttk.Button(text="PLAY!", command=self.start_game)
+        btn_start.grid(column=1, row=4)
 
     # FUNCTION SECTION - where the methods are located
     # note: comments are changed to docstrings when applicable for better IDE introspection
@@ -161,8 +158,13 @@ class CandyMonsterGUI(tk.Tk):
         """See if character hits a bad candy."""
         for candy in self.bad_candy_list:
             if self.collision(self.character, candy, 30):
-                self.canvas.create_text(200, 200, text="Game Over", fill="red")
-                self.window.after(2000, self.end_game_over)
+                self.canvas.create_text(
+                    200,
+                    200,
+                    text=f"Game Over \nYou ate {self.score} candies",
+                    fill="red",
+                )
+                self.window.after(5000, self.end_game_over)
 
         for candy in self.candy_list:
             if self.collision(self.character, candy, 30):
@@ -200,6 +202,13 @@ class CandyMonsterGUI(tk.Tk):
             # Decrease character x position
             self.canvas.move(self.character, -10, 0)
         self.window.after(16, self.move_character)
+
+    def start_game(self):
+        self.window.after(1000, self.end_titles)  # destroy title and instructions
+        self.window.after(1000, self.make_candy)  # start making candy
+        self.window.after(1000, self.move_candy)  # start moving candy
+        self.window.after(1000, self.check_hits)  # check if character hit a candy
+        self.window.after(1000, self.move_character)  # handle keyboard controls
 
 
 # Step 1 - Create the GUI
