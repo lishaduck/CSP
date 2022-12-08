@@ -566,7 +566,7 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "furo"
-version = "2022.9.29"
+version = "2022.12.7"
 description = "A clean customisable Sphinx documentation theme."
 category = "main"
 optional = false
@@ -575,7 +575,7 @@ python-versions = ">=3.7"
 [package.dependencies]
 beautifulsoup4 = "*"
 pygments = ">=2.7"
-sphinx = ">=4.0,<6.0"
+sphinx = ">=5.0,<7.0"
 sphinx-basic-ng = "*"
 
 [[package]]
@@ -2179,8 +2179,8 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 
 [metadata]
 lock-version = "1.1"
-        python-versions = "^3.10"
-content-hash = "caa27404afff6130474ba52192b62b06267cf7fdb107cb9bbe7a1d52b11dd767"
+python-versions = "^3.10"
+content-hash = "de64fd85b97f61c33e5fdcf7a41e6854eca32cb03c98488a4bd10e40aed88f29"
 
 [metadata.files]
 aiohttp = [
@@ -2742,8 +2742,8 @@ frozenlist = [
     {file = "frozenlist-1.3.3.tar.gz", hash = "sha256:58bcc55721e8a90b88332d6cd441261ebb22342e238296bb330968952fbb3a6a"},
 ]
 furo = [
-    {file = "furo-2022.9.29-py3-none-any.whl", hash = "sha256:559ee17999c0f52728481dcf6b1b0cf8c9743e68c5e3a18cb45a7992747869a9"},
-    {file = "furo-2022.9.29.tar.gz", hash = "sha256:d4238145629c623609c2deb5384f8d036e2a1ee2a101d64b67b4348112470dbd"},
+    {file = "furo-2022.12.7-py3-none-any.whl", hash = "sha256:7cb76c12a25ef65db85ab0743df907573d03027a33631f17d267e598ebb191f7"},
+    {file = "furo-2022.12.7.tar.gz", hash = "sha256:d8008f8efbe7587a97ba533c8b2df1f9c21ee9b3e5cad0d27f61193d38b1a986"},
 ]
 gitdb = [
     {file = "gitdb-4.0.10-py3-none-any.whl", hash = "sha256:c286cf298426064079ed96a9e4a9d39e7f3e9bf15ba60701e95f5492f28415c7"},
