@@ -1,5 +1,4 @@
-"""Program: ladybug_code.py - Make a ladybug.
-"""
+"""Program: ladybug_code.py - Make a ladybug."""
 
 
 import turtle as trtl

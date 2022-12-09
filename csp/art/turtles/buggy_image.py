@@ -1,5 +1,4 @@
-"""Program: buggy_image.py - Make a spider.
-"""
+"""Program: buggy_image.py - Make a spider."""
 
 
 import turtle as trtl
