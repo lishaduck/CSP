@@ -1,5 +1,4 @@
-"""Program: traversing_turtles.py - Add code to make turtles move in a circle and change colors.
-"""
+"""Program: traversing_turtles.py - Add code to make turtles move in a circle and change colors."""
 
 
 import turtle as trtl

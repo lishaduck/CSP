@@ -1,5 +1,4 @@
-"""Program: guessing_game.py - Guess what is is.
-"""
+"""Program: guessing_game.py - Guess what is is."""
 
 
 import random

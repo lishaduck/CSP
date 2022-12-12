@@ -23,7 +23,7 @@ class MultiFactorAuth(tk.Tk):
         self.password = pw
 
     # save security question/answer that the user wants to use
-    def set_authentication(self, user_question="unknown", user_answer="unknown"):
+    def set_authentication(self, user_question="known", user_answer="unknown"):
         self.security_question = user_question
         self.answer = user_answer
 
