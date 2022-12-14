@@ -1,5 +1,4 @@
-"""Program: shield.py - Make a shield shape.
-"""
+"""Program: shield.py - Make a shield shape."""
 
 import turtle as trtl
 
