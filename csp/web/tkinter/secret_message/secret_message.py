@@ -4,13 +4,20 @@ Elisha Dukes [12.12]- Mrs. Carson
 """
 
 
+import os
 import tkinter as tk
+from pathlib import Path
 from tkinter import (  # Use object oriented design to build the dialog.
     Tk,
     messagebox,
     simpledialog,
+    ttk,
 )
-from tkinter.ttk import Frame
+from tkinter.ttk import Frame, Style
+
+from PIL import Image, ImageTk
+
+from csp.utilities import artistic_text
 
 
 class SecretMessageGUI(Tk):
@@ -19,7 +26,11 @@ class SecretMessageGUI(Tk):
     def __init__(self):
         """Initialize the window."""
         super().__init__()
-        # Create a while loop. Steps b through e will be in the loop.
+
+        self.title("Lock & Key")
+        self.wm_geometry("200x300")
+        style = Style()
+        style.theme_use("aqua")
 
 
 # https://www.pythontutorial.net/tkinter/tkinter-object-oriented-frame/
@@ -30,42 +41,71 @@ class MainFrame(Frame):
         """Initialize the frame."""
         super().__init__(container)
         self.display()
+        self.config(cursor="question_arrow")
         # The swap_letters function has a really useful feature: if you run it on an encrypted message, it will decrypt it. So you can use this function to encrypt or decrypt messages depending on what the user wants to do. Update the while loop you created in Step 6.
-        while True:
-            # Call the get_task function and store its result in a variable called task.
-            task = self.get_task()
-            # If task equals 'encrypt', call the get_message() function and store it in a variable called message. Then create a message box that displays the message.
-            if task == "encrypt":
-                message = self.get_message()
-                # Under the if statement, after you call the get_message function, call the swap_letters function. Pass in the parameter message and store its return value in a variable encrypted.
-                encrypted = self.swap_letters(str(message))
-                # creating a message box
-                # Update the message box code to show
-                # “Ciphertext of the secret message is: ”, encrypted
-                messagebox.showinfo("Ciphertext of the secret message is: ", encrypted)
-            # Else if task equals 'decrypt', call the get_message() function and store it in a variable called message. Then create a message box that displays the message.
-            elif task == "decrypt":
-                message = self.get_message()
-                # Under the elif statement, after you call the get_message function, call the swap_letters function. Pass in the parameter message and store its return value in a variable decrypted.
-                decrypted = self.swap_letters(str(message))
-                # creating a message box
-                # Update the message box code to show
-                # “Plaintext of the secret message is: ”, decrypted
-                messagebox.showinfo("Plaintext of the secret message is: ", decrypted)
 
-            else:
-                break
+        artistic_text("Lock & Key", font="random-small", speed=0.05)
+
+    def message(self):
+        """Do the tricky stuff."""
+        self.loading.grid(column=1, row=3, **self.options)
+        self.loading.start(20)
+        # Call the get_task function and store its result in a variable called task.
+        task = self.get_task()
+        # If task equals 'encrypt', call the get_message() function and store it in a variable called message. Then create a message box that displays the message.
+        if task in ("encrypt", "e"):
+            message = self.get_message()
+            # Under the if statement, after you call the get_message function, call the swap_letters function. Pass in the parameter message and store its return value in a variable encrypted.
+            encrypted = self.swap_letters(str(message))
+            # creating a message box
+            # Update the message box code to show
+            # “Ciphertext of the secret message is: ”, encrypted
+            messagebox.showinfo("Ciphertext of the secret message is: ", encrypted)
+        # Else if task equals 'decrypt', call the get_message() function and store it in a variable called message. Then create a message box that displays the message.
+        elif task in ("decrypt", "d"):
+            message = self.get_message()
+            # Under the elif statement, after you call the get_message function, call the swap_letters function. Pass in the parameter message and store its return value in a variable decrypted.
+            decrypted = self.swap_letters(str(message))
+            # creating a message box
+            # Update the message box code to show
+            # “Plaintext of the secret message is: ”, decrypted
+            messagebox.showinfo("Plaintext of the secret message is: ", decrypted)
+        else:
+            messagebox.showwarning(
+                title="Uh-oh",
+                message=f'Oops! It looks like something went wrong.\nYou inputted "{task}"',
+            )
+
+        self.loading.grid_remove()
+        self.loading.stop()
 
     def display(self):
         """Display the canvas."""
-        self.canvas = tk.Canvas(self, width=800, height=800, bg="light sky blue")
-        self.canvas.grid(column=1, row=1)
+        # from https://www.pythontutorial.net/tkinter/tkinter-object-oriented-application/
+        # field options
+        self.options = {"padx": 5, "pady": 5}
 
-        self.message_text = self.canvas.create_text(
-            200,
-            200,
-            text="Howdy!",
-            fill="sienna2",
+        self.canvas = tk.Canvas(width=200, height=200, bg="sienna2")
+        self.canvas.grid(column=1, row=1, **self.options)
+
+        self.p = Path(os.path.realpath(__file__)).parent
+        self.logo_file_name: Path = Path.resolve(self.p / "logo.gif")
+
+        # with assistance from https://www.pythontutorial.net/tkinter/tkinter-thread-progressbar/
+        pil_img = Image.open(self.logo_file_name)
+
+        # resize the picture
+        resized_img = pil_img.resize((200, 200), Image.Resampling.LANCZOS)
+
+        self.logo_image: ImageTk.PhotoImage = ImageTk.PhotoImage(resized_img)
+        # use image to create a canvas image
+        self.img_logo = self.canvas.create_image((100, 102.5), image=self.logo_image)
+
+        self.btn_crypt = ttk.Button(text="Run!", command=self.message)
+        self.btn_crypt.grid(column=1, row=2, **self.options)
+
+        self.loading = ttk.Progressbar(
+            orient="horizontal", length=50, mode="indeterminate"
         )
 
     # Test your program. Choose “encrypt” in the task window. When the message window pops up, enter the sort of message a spy might want to keep secret.
