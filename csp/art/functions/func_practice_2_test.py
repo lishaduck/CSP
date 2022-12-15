@@ -1,11 +1,9 @@
-"""Tests the func_practice_2.py module.
-"""
+"""Tests the func_practice_2.py module."""
 
 
 import unittest
 
-import func_practice_2
-import pytest
+from . import func_practice_2
 
 
 class TripleTest(unittest.TestCase):

@@ -1,5 +1,4 @@
-"""Program: nested_loops_4.py - Practice nested loops.
-"""
+"""Program: nested_loops_4.py - Practice nested loops."""
 
 import turtle as trtl
 

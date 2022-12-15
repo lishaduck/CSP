@@ -1,5 +1,4 @@
-"""Program: guessing_game.py - Guess what is is.
-"""
+"""Program: guessing_game.py - Guess what is is."""
 
 
 import random
@@ -23,7 +22,7 @@ def guess_num():
 
 
 def quiz_game():
-    """This is the quiz game.
+    """Play the quiz game.
 
     No Args
     """
