@@ -51,21 +51,23 @@ class MainFrame(Frame):
         self.loading.grid(column=1, row=3, **self.options)
         self.loading.start(20)
         # Call the get_task function and store its result in a variable called task.
-        task = self.get_task()
+        task = str(self.get_task())
         # If task equals 'encrypt', call the get_message() function and store it in a variable called message. Then create a message box that displays the message.
         if task in ("encrypt", "e"):
-            message = self.get_message()
+            message: str = str(self.get_message())
             # Under the if statement, after you call the get_message function, call the swap_letters function. Pass in the parameter message and store its return value in a variable encrypted.
-            encrypted = self.swap_letters(str(message))
+            encrypted: str = self.swap_letters(message)
             # creating a message box
             # Update the message box code to show
             # “Ciphertext of the secret message is: ”, encrypted
             messagebox.showinfo("Ciphertext of the secret message is: ", encrypted)
         # Else if task equals 'decrypt', call the get_message() function and store it in a variable called message. Then create a message box that displays the message.
         elif task in ("decrypt", "d"):
-            message = self.get_message()
+            message: str = str(self.get_message())
             # Under the elif statement, after you call the get_message function, call the swap_letters function. Pass in the parameter message and store its return value in a variable decrypted.
-            decrypted = self.swap_letters(str(message))
+            decrypted: str = self.swap_letters(message)
+            if decrypted[-1] == "x":
+                decrypted.rstrip("x")
             # creating a message box
             # Update the message box code to show
             # “Plaintext of the secret message is: ”, decrypted
