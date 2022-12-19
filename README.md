@@ -8,30 +8,30 @@ This repo tracks my progress in [Advanced Placement][ap] [Project Lead the Way][
 
 This repo is roughly organized by unit:
 
--   ### [`art`](/csp/art/) is unit 1: Creative Computing for All
+- ### [`art`](/csp/art/) is unit 1: Creative Computing for All
 
-    -   [`turtles`][turtles folder] is lesson 1.1: Algorithms.
-        -   [`115codefilesCSP`][115codefiles] is a set of 3 python turtle programs which move a robot around a maze.
-        -   [`csp/art/turtles/project.py`][turtle project] is the lesson project.
-    -   [`functions`][funcs] is lesson 1.2: Abstraction.
-        -   [`catch-a-turtle`][catch-a-turtle] is a game with a persistant-state leaderboard.
+  - [`turtles`][turtles folder] is lesson 1.1: Algorithms.
+    - [`115codefilesCSP`][115codefiles] is a set of 3 python turtle programs which move a robot around a maze.
+    - [`csp/art/turtles/project.py`][turtle project] is the lesson project.
+  - [`functions`][funcs] is lesson 1.2: Abstraction.
+    - [`catch-a-turtle`][catch-a-turtle] is a game with a persistant-state leaderboard.
 
--   ### [`web`](/csp/) is unit 2
+- ### [`web`](/csp/) is unit 2
 
-    -   `web/project.py` is the unit project.
+  - `web/project.py` is the unit project.
 
--   ### `data` is unit 3
+- ### `data` is unit 3
 
-    -   `data/project.py` is the unit project.
+  - `data/project.py` is the unit project.
 
--   ### `future` is unit 4
+- ### `future` is unit 4
 
-    -   `future/project.py` is the unit project.
+  - `future/project.py` is the unit project.
 
--   ### Other projects at the [root](./csp/) are listed below
+- ### Other projects at the [root](./csp/) are listed below
 
-    -   [`bottom_line.py`][bottom line] was made for health. It's a simple python-powered CLI that determines if you have drunk enough water.
-    -   [`complaint.py`][complaint] was made for fun in [CSP][art]. It's a python program which makes a `TurtleScreen()` that displays a custom message.
+  - [`bottom_line.py`][bottom line] was made for health. It's a simple python-powered CLI that determines if you have drunk enough water.
+  - [`complaint.py`][complaint] was made for fun in [CSP][art]. It's a python program which makes a `TurtleScreen()` that displays a custom message.
 
 ## Tests
 
