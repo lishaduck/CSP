@@ -1,3 +1,0 @@
-myst-parser[linkify, replacements,smartquotes,strikethrough,tasklist]==0.18.1
-furo==2022.9.29
-sphinx==6.1.1
