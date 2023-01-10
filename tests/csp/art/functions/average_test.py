@@ -3,12 +3,11 @@
 
 import random
 import statistics
-import unittest
 
-from . import average
+from src.csp.art.functions import average
 
 
-class AverageTest(unittest.TestCase):
+class AverageTest():
     """This class contains tests.
 
     It is used to remind me how tests are made.
@@ -16,7 +15,7 @@ class AverageTest(unittest.TestCase):
 
     def test_default(self):
         """Tests that the --default CLI option works."""
-        self.assertEqual(average.average(average.scores), 8.5)
+        assert average.average(average.scores) == 8.5
 
     def test_fuzz(self):
         """Tests that with random numbers, that function performs on par with `statistics.mean`."""
@@ -28,4 +27,4 @@ class AverageTest(unittest.TestCase):
             random.randint(-50, 50),
             random.randint(-50, 50),
         ]
-        self.assertEqual(statistics.mean(fuzz), average.average(fuzz))
+        assert statistics.mean(fuzz) == average.average(fuzz)
