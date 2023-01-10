@@ -214,7 +214,7 @@ class CandyMonsterGUI(tk.Tk):
 # Step 1 - Create the GUI
 
 if __name__ == "__main__":
-    root: CandyMonsterGUI = CandyMonsterGUI()
+    root: tk.Tk = CandyMonsterGUI()
 
     # last line of code
     root.mainloop()

@@ -193,6 +193,6 @@ class MainFrame(Frame):
 
 # Now that you've created your interface functions, add this infinite while loop to call them in the correct order.
 if __name__ == "__main__":
-    root = SecretMessageGUI()
-    frame = MainFrame(root)
+    root: tk.Tk = SecretMessageGUI()
+    frame: ttk.Frame = MainFrame(root)
     root.mainloop()
