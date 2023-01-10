@@ -1,3 +1,5 @@
+"""A program (mostly) by Chat-GPT."""
+
 import httplib2
 
 endpoint = input("endpoint")

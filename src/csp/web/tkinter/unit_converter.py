@@ -75,7 +75,7 @@ class ConverterApp(tk.Tk):
 
 
 if __name__ == "__main__":
-    my_win = ConverterApp()
+    my_win: tk.Tk = ConverterApp()
 
     # start the GUI
     my_win.mainloop()
