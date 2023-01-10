@@ -1,5 +1,6 @@
 """Tests ap_2023."""
 
+
 from src.ap_2023 import main
 
 

@@ -8,7 +8,7 @@ class App(tk.Tk):
     """The base class for the app."""
 
     def __init__(self):
-        """The initializing method."""
+        """Initialize the class."""
         super().__init__()
 
         button = ttk.Button()
@@ -18,7 +18,8 @@ class App(tk.Tk):
 def start_app():
     """Start the app."""
     if __name__ == "__main__":
-        App()
+        root: App = App()
+        root.mainloop()
 
 
 start_app()
