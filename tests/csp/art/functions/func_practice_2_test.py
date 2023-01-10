@@ -1,12 +1,10 @@
 """Tests the func_practice_2.py module."""
 
 
-
-
 from src.csp.art.functions import func_practice_2
 
 
-class TripleTest():
+class TripleTest:
     """This class contains tests for the triple function."""
 
     def test_for_four(self):
@@ -18,7 +16,7 @@ class TripleTest():
         assert func_practice_2.triple(5) == 15
 
 
-class AreaTest():
+class AreaTest:
     """This class contains tests for the triangle_area function."""
 
     def test_for_four(self):
@@ -30,7 +28,7 @@ class AreaTest():
         assert func_practice_2.triangle_area(5, 4) == 10
 
 
-class MinTest():
+class MinTest:
     """This class contains tests for the min_test."""
 
     def test_for_one(self):

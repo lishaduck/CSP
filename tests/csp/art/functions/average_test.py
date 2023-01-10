@@ -7,7 +7,7 @@ import statistics
 from src.csp.art.functions import average
 
 
-class AverageTest():
+class AverageTest:
     """This class contains tests.
 
     It is used to remind me how tests are made.
@@ -18,7 +18,10 @@ class AverageTest():
         assert average.average(average.scores) == 8.5
 
     def test_fuzz(self):
-        """Tests that with random numbers, that function performs on par with `statistics.mean`."""
+        """Tests that the function performs on par with `statistics.mean`.
+
+        Fuzzes with `random` numbers, not `hypothesis`.
+        """
         fuzz = [
             random.randint(-50, 50),
             random.randint(-50, 50),
